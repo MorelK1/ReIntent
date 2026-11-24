@@ -10,8 +10,8 @@ class Node(BaseModel):
     node_name: str
     tier: Literal["iot", "edge", "fog", "cloud"]
     node_type: str
-    cpu_cores: int
-    ram_gb: int
+    cpu_cores: float
+    ram_gb: float
     storage_gb: int
     mips: float | None = None
 

@@ -46,6 +46,7 @@ this baseline's own, richer than direct-llm's -- not a mirror of it.
 """
 
 from agent.model.schemas import Flow, Link, Node, Service
+from agent.utils.pipeline import fmt_value
 
 _ROLE = """You are a service orchestration decision-maker for a Cloud-Edge computing environment."""
 
@@ -480,7 +481,7 @@ def build_user_prompt(
     links: list[Link],
 ) -> str:
     nodes_desc = "\n".join(
-        f"- {n.node_id} (tier={n.tier}): cpu_cores={n.cpu_cores}, ram_gb={n.ram_gb}, mips={n.mips}"
+        f"- {n.node_id} (tier={n.tier}): cpu_cores={fmt_value(n.cpu_cores)}, ram_gb={fmt_value(n.ram_gb)}, mips={n.mips}"
         for n in nodes.values()
     )
     links_desc = "\n".join(

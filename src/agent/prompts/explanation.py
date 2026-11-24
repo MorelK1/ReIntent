@@ -297,7 +297,7 @@ def _current_capacity_section(
         used = sum(effective_service_capacity(sid, node_field, services, requirements) for sid in hosted)
         unit = "vCPU" if r.kpi_type == "cpu" else "GB"
         lines.append(
-            f"  - {node_id} {r.kpi_type}: {_fmt(used)} of {capacity}{unit} used, "
+            f"  - {node_id} {r.kpi_type}: {_fmt(used)} of {_fmt(capacity)}{unit} used, "
             f"{_fmt(capacity - used)}{unit} free"
         )
     return "Current resource usage under the existing placement:\n" + "\n".join(lines) + "\n\n" if lines else ""

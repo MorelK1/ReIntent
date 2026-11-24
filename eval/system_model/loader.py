@@ -66,15 +66,21 @@ def load_nodes() -> dict[str, Node]:
         bg = background.get(row["node_id"])
         bg_cpu = float(bg["background_cpu_cores"]) if bg else 0.0
         bg_ram = float(bg["background_ram_gb"]) if bg else 0.0
-        # floor(), not round() -- same rationale as public_safety/loader.py:
-        # rounding up could make a node look like it has room it doesn't.
+        # Exact arithmetic, matching eval/benchmark_generation's own
+        # resource_feasible() check -- an earlier math.floor() here
+        # (dropping the sub-unit remainder of capacity - background) caused
+        # necessity_checker/decision_engine_cp_sat to disagree with the
+        # benchmark's own ground-truth label on 6/500 scenarios, all within
+        # a sub-1-unit margin of this rounding. See eval/benchmark/scenarios.json
+        # vs eval/results_reference/reference_decisions.jsonl for the
+        # before/after.
         nodes[row["node_id"]] = Node(
             node_id=row["node_id"],
             node_name=row["node_id"],  # source has no node_name column
             tier=row["tier"],
             node_type=row["node_type"],
-            cpu_cores=math.floor(float(row["cpu_cores"]) - bg_cpu),
-            ram_gb=math.floor(float(row["ram_gb"]) - bg_ram),
+            cpu_cores=float(row["cpu_cores"]) - bg_cpu,
+            ram_gb=float(row["ram_gb"]) - bg_ram,
             storage_gb=math.floor(float(row["storage_gb"])),
             mips=float(row["mips"]),
         )

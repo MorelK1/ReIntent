@@ -317,7 +317,7 @@ def capacity_satisfied(
             ok = total <= capacity
             checks.append((
                 ok,
-                f"{node_field} on {node_id}: {fmt_value(total)} of {capacity} used by {hosted} "
+                f"{node_field} on {node_id}: {fmt_value(total)} of {fmt_value(capacity)} used by {hosted} "
                 f"{'ok' if ok else 'EXCEEDS capacity'}",
             ))
     return checks
