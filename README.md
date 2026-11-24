@@ -2,7 +2,7 @@
 
 ReIntent: Intent-Driven Reconfiguration for Evolving QoS Requirements in the Cloud-Edge Continuum
 
-Anonymous artefact for double-blind review.
+Anonymous artefact for review.
 
 Given a natural-language operator intent (e.g. "object recognition now needs
 4.5 GB of memory"), the pipeline extracts its structured requirements,
