@@ -1,8 +1,8 @@
-"""Runs ONE eval/experiment_150 scenario through the REAL, FULL graph
+"""Runs ONE eval/experiment_500 scenario through the REAL, FULL graph
 (intent_grounding -> necessity_checker -> decision_engine -> explanation),
 real LLM calls included -- unlike eval/run_scenario_intent.py, which uses a
 hand-typed intent, this pulls the already-generated intent from
-intent/intents.json by scenario_id.
+intent/intents_500.json by scenario_id.
 
 Persists a COMPLETE raw record (not just a verdict) -- every field of every
 extracted requirement, the full ground truth (requirements, decision,
@@ -42,6 +42,7 @@ def run(
     model: str | None = None,
     prompt_strategy: str = "zero_shot",
     explanation_model: str | None = None,
+    skip_necessity_checker: bool = False,
     verbose: bool = False,
 ) -> dict:
     scenario = load_scenario(scenario_id)
@@ -53,7 +54,10 @@ def run(
     flows = load_flows(scenario)
 
     if graph is None:
-        graph = build_graph(model=model, prompt_strategy=prompt_strategy, explanation_model=explanation_model)
+        graph = build_graph(
+            model=model, prompt_strategy=prompt_strategy, explanation_model=explanation_model,
+            skip_necessity_checker=skip_necessity_checker,
+        )
 
     start = time.perf_counter()
     result = graph.invoke(
@@ -72,13 +76,21 @@ def run(
     total_elapsed_s = time.perf_counter() - start
 
     record = {
-        "run_config": {"model": model, "prompt_strategy": prompt_strategy, "explanation_model": explanation_model},
+        "run_config": {"model": model, "prompt_strategy": prompt_strategy, "explanation_model": explanation_model,
+                       "skip_necessity_checker": skip_necessity_checker},
         "scenario_id": scenario_id,
         "intent": intent_entry["intent"],
         "intent_metadata": {
             k: intent_entry.get(k) for k in ("plan", "mentions", "n_words", "review_status", "variant_id")
         },
         "extracted_requirements": [req.model_dump() for req in result["requirements"]],
+        # Raw LLM output before validate_and_normalize, and what it
+        # rejected (with why) -- so a model-comparison scoring script can
+        # score extraction accuracy against intent_metadata.mentions
+        # without that being conflated with validate_and_normalize's own
+        # strictness (see states/state.py's own comment on extraction_raw).
+        "extraction_raw": [req.model_dump() for req in result.get("extraction_raw", [])],
+        "extraction_rejected": [r.model_dump() for r in result.get("extraction_rejected", [])],
         "necessity_result": result["necessity_result"].model_dump() if result["necessity_result"] else None,
         "decision_result": result["decision_result"].model_dump() if result["decision_result"] else None,
         "explanation": result["explanation"],
@@ -109,6 +121,8 @@ def run(
         print(f"intent: {intent_entry['intent']}")
         print(f"ground truth: decision={scenario['decision']} moved={scenario['moved_components']} p1={scenario['p1']}")
         print(f"extracted requirements: {record['extracted_requirements']}")
+        if record["extraction_rejected"]:
+            print(f"extraction_rejected: {record['extraction_rejected']}")
         print(f"necessity_result: {record['necessity_result']}")
         print(f"decision_result: {record['decision_result']}")
         print(f"explanation: {record['explanation']}")
@@ -125,10 +139,16 @@ if __name__ == "__main__":
         "--explanation-model", default=None,
         help="Overrides the model for explanation_node independently (defaults to --model if not given)",
     )
+    parser.add_argument(
+        "--skip-necessity-checker", action="store_true",
+        help="Ablation: builds the graph WITHOUT necessity_checker -- decision_engine runs "
+             "directly on the extracted requirements (see graph.py:build_graph)",
+    )
     args = parser.parse_args()
     record = run(
         args.scenario_id, model=args.model, prompt_strategy=args.prompt_strategy,
-        explanation_model=args.explanation_model, verbose=True,
+        explanation_model=args.explanation_model, skip_necessity_checker=args.skip_necessity_checker,
+        verbose=True,
     )
     print("\n=== full record (JSON) ===")
     print(json.dumps(record, indent=2, ensure_ascii=False))

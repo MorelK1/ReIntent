@@ -1,7 +1,7 @@
 """Runs ONE real natural-language intent through the REAL, FULL graph
 (intent_grounding -> necessity_checker -> decision_engine -> explanation)
-against one eval/experiment_150 scenario's system model -- a single manual
-sanity check before building out the full 150-scenario campaign.
+against one eval/experiment_500 scenario's system model -- a single manual
+sanity check before building out the full 500-scenario campaign.
 
 Usage:
     source venv/bin/activate
@@ -17,8 +17,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "system_model"))
 from agent.graph import build_graph  # noqa: E402
 from loader import load_flows, load_links, load_nodes, load_scenario, load_services  # noqa: E402
 
-SCENARIO_ID = "ARVR-000035"
-INTENT = "Rebalancing the latency budgets: the recognition flow gets tighter, 464.432 ms at most, while the AR rendering flow gets a bit more room, 504.481 ms at most. Separately, the stage in the middle of both chains needs at least 6580.976 millicores, and the first stage after capture in the recognition chain at least 2.820437067 GB of RAM."  # <- à remplir avec l'intent envoyé
+SCENARIO_ID = "ARVR-000001"
+# FEASIBLE/OFFLOAD test: 2 ram floors (C4 AR Rendering, C2 Object
+# Recognition), ground truth decision=OFFLOAD, minimum_migrations=1,
+# moved_components=[4] (AR Rendering) -- see
+# eval/experiment_500/scenarios.json. Used to check the FEASIBLE
+# explanation now that explain_moved_services (pipeline.py) emits raw
+# "MOVE: ..." facts instead of pre-written sentences -- the model should
+# compose its own "why this service moved" wording from that data plus
+# RULES, not echo a fixed template.
+INTENT = (
+    "Heads-up from the ops review: AR Rendering needs 7109.220038 MB of RAM "
+    "at minimum, and C2 needs a minimum of 4.729380463 GB."
+)
 
 
 def main() -> None:

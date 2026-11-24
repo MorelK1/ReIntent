@@ -1,4 +1,4 @@
-"""Runs a BATCH of eval/experiment_150 scenarios through the REAL, FULL graph
+"""Runs a BATCH of eval/experiment_500 scenarios through the REAL, FULL graph
 and appends one complete raw record per scenario (see
 run_sample_full_graph.py:run) to a JSONL file as it goes -- written
 incrementally, not buffered, so a crash or a rate-limit partway through
@@ -6,10 +6,26 @@ doesn't lose what already ran. No metric is computed here -- a later,
 separate scoring script compares each record's prediction against its
 ground_truth (also captured in the record).
 
-scenarios.json is already interleaved across outcomes (confirmed: the first
-20 scenarios split STAY/OFFLOAD/INFEASIBLE close to the full dataset's own
-ratio), so scenarios[:n] is a representative subset -- no stratified-subset
-file needed here, unlike public_safety's e2e_samples.json.
+scenarios.json is NOT as evenly interleaved here as experiment_150's was:
+re-checked on 2026-11-03, the first 20 scenarios split STAY 45%/OFFLOAD
+35%/INFEASIBLE 20%, vs the full 500's own 32%/47%/21% -- STAY is visibly
+over-represented and OFFLOAD under-represented in a small scenarios[:n]
+prefix. A `limit` well under ~100 is therefore a biased subset, not a
+representative one; shuffle or stratify explicitly if a small n matters.
+No stratified-subset file exists for this dataset either way, unlike
+public_safety's e2e_samples.json. NOT re-checked against benchmark_v3's own
+scenarios.json (different ratios -- 38/49/13, see its summary.json) -- a
+small `limit` there needs its own interleaving check before trusting it.
+
+Reads eval/experiment_500/scenarios.json and writes under eval/results/ by
+default; set EVAL_EXPERIMENT_DIR and EVAL_RESULTS_DIR (same env vars as
+loader.py, see its docstring) to run against another campaign instead,
+e.g. the v3 benchmark:
+    EVAL_SYSTEM_MODEL_DIR=eval/system_model_normalized \\
+    EVAL_EXPERIMENT_DIR=eval/benchmark_v3 \\
+    EVAL_INTENT_FILE=intent_v3/intents_v3.json \\
+    EVAL_RESULTS_DIR=eval/results_v3 \\
+    PYTHONPATH=src venv/bin/python3 eval/run_batch_full_graph.py ...
 
 Rate-limit handling copied from
 expérimentations/public_safety/run_batch_full_graph.py (pure
@@ -27,6 +43,7 @@ Usage (from the project root):
 
 import argparse
 import json
+import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -44,8 +61,14 @@ DEFAULT_N = 10
 DEFAULT_DELAY_S = 5.0
 MAX_RETRIES_ON_RATE_LIMIT = 3
 DEFAULT_RETRY_WAIT_S = 120.0  # OpenRouter's own Retry-After hint, observed
-RESULTS_DIR = Path(__file__).parent / "results"
-SCENARIOS_PATH = Path(__file__).parent / "experiment_150" / "scenarios.json"
+# Same EVAL_EXPERIMENT_DIR as loader.py (see its own docstring) -- kept in
+# sync here only because this script needs the scenario_id LIST up front
+# (to slice [:limit]), not any scenario content itself; loader.py is still
+# what actually resolves each scenario's requirements/decision. EVAL_RESULTS_DIR
+# keeps a v3 (or any other) campaign's output out of eval/results/, which is
+# experiment_500-only.
+RESULTS_DIR = Path(os.environ.get("EVAL_RESULTS_DIR", str(Path(__file__).parent / "results")))
+SCENARIOS_PATH = Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(Path(__file__).parent / "experiment_500"))) / "scenarios.json"
 
 
 def _retry_info(exc: Exception) -> tuple[str, float] | None:
@@ -107,19 +130,30 @@ def run_with_retry(scenario_id: str, graph, **run_kwargs) -> dict | None:
 
 def main(
     limit: int, delay_s: float, model: str | None, prompt_strategy: str, explanation_model: str | None,
+    skip_necessity_checker: bool = False,
 ) -> None:
     with open(SCENARIOS_PATH) as f:
         all_scenarios = json.load(f)
     scenario_ids = [s["id"] for s in all_scenarios[:limit]]
 
     graph = build_graph(
-        model=model, prompt_strategy=prompt_strategy, explanation_model=explanation_model
+        model=model, prompt_strategy=prompt_strategy, explanation_model=explanation_model,
+        skip_necessity_checker=skip_necessity_checker,
     )  # built once, reused
 
-    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    # Ablation runs land in their own sibling directory, not mixed into
+    # RESULTS_DIR -- same scenarios/models, different pipeline shape, kept
+    # separate so a later scoring pass never accidentally pools the two.
+    # Derived from RESULTS_DIR's own name (not hardcoded "results") so this
+    # still lands next to a non-default RESULTS_DIR (e.g. EVAL_RESULTS_DIR=
+    # eval/results_v3 -> eval/results_v3_ablation, not eval/results_ablation).
+    results_dir = (
+        RESULTS_DIR.parent / f"{RESULTS_DIR.name}_ablation" if skip_necessity_checker else RESULTS_DIR
+    )
+    results_dir.mkdir(parents=True, exist_ok=True)
     model_tag = (model or "default").replace("/", "-")
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
-    out_path = RESULTS_DIR / f"{model_tag}__{prompt_strategy}__{timestamp}.jsonl"
+    out_path = results_dir / f"{model_tag}__{prompt_strategy}__{timestamp}.jsonl"
     print(f"Writing results to {out_path}\n")
 
     n_ok = 0
@@ -130,11 +164,13 @@ def main(
             record = run_with_retry(
                 scenario_id, graph,
                 model=model, prompt_strategy=prompt_strategy, explanation_model=explanation_model,
+                skip_necessity_checker=skip_necessity_checker,
             )
             if record is None:
                 record = {
                     "run_config": {"model": model, "prompt_strategy": prompt_strategy,
-                                   "explanation_model": explanation_model},
+                                   "explanation_model": explanation_model,
+                                   "skip_necessity_checker": skip_necessity_checker},
                     "scenario_id": scenario_id, "error": "see console log above",
                 }
                 n_error += 1
@@ -162,5 +198,11 @@ if __name__ == "__main__":
     parser.add_argument("--explanation-model", default=None,
                          help="Overrides the model for explanation_node independently "
                               "(defaults to --model if not given)")
+    parser.add_argument(
+        "--skip-necessity-checker", action="store_true",
+        help="Ablation: builds the graph WITHOUT necessity_checker -- decision_engine runs "
+             "directly on the extracted requirements (see graph.py:build_graph)",
+    )
     args = parser.parse_args()
-    main(args.n, args.delay, args.model, args.prompt_strategy, args.explanation_model)
+    main(args.n, args.delay, args.model, args.prompt_strategy, args.explanation_model,
+         skip_necessity_checker=args.skip_necessity_checker)
