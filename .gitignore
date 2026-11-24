@@ -11,14 +11,22 @@ dist/
 testbench.ipynb
 state_space_prompt_permissive.py
 expérimentations/public_safety/
-# Raw per-campaign evaluation outputs (large, regenerable by re-running the
-# corresponding eval script against OpenRouter) -- never committed.
+# Raw per-campaign evaluation outputs for experiment_500 (large, superseded
+# by benchmark_v3 -- not needed for review, regenerable by re-running the
+# corresponding eval script against OpenRouter if ever needed). benchmark_v3's
+# own results/baselines/results_v3 are intentionally NOT ignored: reviewers
+# need to see the actual prompts/code/results/approaches for the reported
+# benchmark.
 eval/results/
 eval/results_ablation/
-eval/results_v3/
-eval/results_v3_ablation/
 eval/baselines/results/
-eval/baselines/results_v3/
 
 # Editor lock files
 .~lock.*#
+
+# Superseded datasets -- fully replaced by experiment_500 / benchmark_v3,
+# kept only historically; intents.json (150-set) and experiment_150/ are
+# referenced solely by intent_store.py's one-off `carry` migration, already
+# executed (see intents_500.json's carried_over_from provenance field).
+eval/experiment_150/
+intent/intents.json
