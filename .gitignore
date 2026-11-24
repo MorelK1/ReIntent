@@ -11,3 +11,14 @@ dist/
 testbench.ipynb
 state_space_prompt_permissive.py
 expérimentations/public_safety/
+# Raw per-campaign evaluation outputs (large, regenerable by re-running the
+# corresponding eval script against OpenRouter) -- never committed.
+eval/results/
+eval/results_ablation/
+eval/results_v3/
+eval/results_v3_ablation/
+eval/baselines/results/
+eval/baselines/results_v3/
+
+# Editor lock files
+.~lock.*#
