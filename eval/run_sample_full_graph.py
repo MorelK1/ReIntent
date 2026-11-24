@@ -1,4 +1,4 @@
-"""Runs ONE eval/experiment_500 scenario through the REAL, FULL graph
+"""Runs ONE eval/benchmark scenario through the REAL, FULL graph
 (intent_grounding -> necessity_checker -> decision_engine -> explanation),
 real LLM calls included -- unlike eval/run_scenario_intent.py, which uses a
 hand-typed intent, this pulls the already-generated intent from

@@ -18,27 +18,15 @@ disagreeing about what "satisfied" means.
 Writes eval/results_reference/reference_decisions.jsonl -- one record per
 scenario: {scenario_id, necessity_result, decision_result, ref_decision,
 ref_moved}. Also prints a sanity-check comparison against scenarios.json's
-own decision/moved_components as it goes (expect ~97-98% agreement, per
-the above). The exact same sanity check is a cheap, free, no-LLM first
-step before launching an actual campaign against a NEW scenarios.json
-(e.g. benchmark_v3) -- it would surface a solver/ground-truth disagreement
-rate before spending any OpenRouter budget on it.
+own decision/moved_components as it goes.
 
-Reads eval/experiment_500/scenarios.json and eval/system_model/ by
-default; set EVAL_EXPERIMENT_DIR, EVAL_SYSTEM_MODEL_DIR and EVAL_OUT_PATH
-(same EVAL_* pattern as loader.py / run_batch_full_graph.py) to check
-another campaign instead, e.g.:
-    EVAL_SYSTEM_MODEL_DIR=eval/system_model_normalized \\
-    EVAL_EXPERIMENT_DIR=eval/benchmark_v3 \\
-    EVAL_OUT_PATH=eval/results_reference/reference_decisions_v3.jsonl \\
-    PYTHONPATH=src venv/bin/python3 eval/run_reference_decision.py
+Reads eval/benchmark/scenarios.json and eval/system_model/.
 
 Usage (from the project root):
     PYTHONPATH=src venv/bin/python3 eval/run_reference_decision.py
 """
 
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -50,12 +38,8 @@ from agent.nodes.decision_engine_cp_sat import decision_engine_node_cp_sat  # no
 from agent.nodes.necessity_checker import necessity_checker_node  # noqa: E402
 from loader import load_flows, load_links, load_nodes, load_services  # noqa: E402
 
-SCENARIOS_PATH = (
-    Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(Path(__file__).parent / "experiment_500"))) / "scenarios.json"
-)
-OUT_PATH = Path(
-    os.environ.get("EVAL_OUT_PATH", str(Path(__file__).parent / "results_reference" / "reference_decisions.jsonl"))
-)
+SCENARIOS_PATH = Path(__file__).parent / "benchmark" / "scenarios.json"
+OUT_PATH = Path(__file__).parent / "results_reference" / "reference_decisions.jsonl"
 
 # scenarios.json's own requirements[].kpi_type spelling -> our schema's.
 KPI_REMAP = {"e2e_latency": "latency"}

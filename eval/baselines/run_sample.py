@@ -1,4 +1,4 @@
-"""Runs ONE eval/experiment_500 scenario through a single-LLM baseline
+"""Runs ONE eval/benchmark scenario through a single-LLM baseline
 (either eval/baselines/"direct llm"/ or eval/baselines/cot/, picked via
 --baseline) -- the LLM does extraction + decision + placement +
 explanation (and, for cot, reasoning) in ONE call, unlike the real

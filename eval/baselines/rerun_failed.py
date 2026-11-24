@@ -16,7 +16,7 @@ the command line.
 
 Usage (from the project root):
     PYTHONPATH=src venv/bin/python3 eval/baselines/rerun_failed.py \\
-        eval/baselines/results_v3/cot__google-gemini-2.5-flash-lite__few_shot__20261123T211335Z.jsonl \\
+        eval/baselines/results/cot__google-gemini-2.5-flash-lite__few_shot__20261123T211335Z.jsonl \\
         [--delay SECONDS]
 """
 

@@ -1,8 +1,0 @@
-node_id,node_name,tier,node_type,cpu_cores,ram_gb,storage_gb,mips
-N1,Pepper,iot,robot,4,8,32,2500
-N2,RaspberryPi4,edge,embedded_edge,4,4,32,3000
-N3,LaptopEdge,edge,laptop,8,16,512,12000
-N4,JetsonNano,edge,edge_ai,6,8,128,5000
-N5,IntelNUC_Fog,fog,fog_node,8,16,512,20000
-N6,IntelNUC_Fog_2,fog,fog_node,8,16,512,20000
-N7,Cloud_A100,cloud,cloud_gpu_node,96,900,10000,100000

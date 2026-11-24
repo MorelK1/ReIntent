@@ -1,4 +1,4 @@
-"""Runs a BATCH of eval/experiment_500 scenarios through a single-LLM
+"""Runs a BATCH of eval/benchmark scenarios through a single-LLM
 baseline (see run_sample.py:run) and appends one complete raw record per
 scenario to a JSONL file as it goes -- written incrementally, not buffered,
 so a crash or a rate-limit partway through doesn't lose what already ran.
@@ -9,22 +9,15 @@ record).
 Same rate-limit handling as eval/run_batch_full_graph.py (copied, same
 pure OpenRouter/network concern, unrelated to which baseline is running).
 
-scenarios.json's first-N-scenarios bias note (see run_batch_full_graph.py's
-own docstring) applies here too -- a `limit` well under ~100 is a biased
-subset, not a representative one. Not re-checked against benchmark_v3's
-own scenarios.json (different ratios, see its summary.json).
+A `limit` well under the full 500 is a biased subset, not a representative
+one (scenarios.json isn't shuffled).
 
 model/prompt_strategy are left unset by default (None), resolved to
 OPENROUTER_MODEL (.env) / the baseline's own DEFAULT_PROMPT_STRATEGY --
 pass --model/--prompt-strategy to pick explicitly without touching this
 file.
 
-Reads eval/experiment_500/scenarios.json and writes under
-eval/baselines/results/ by default; set EVAL_EXPERIMENT_DIR and
-EVAL_RESULTS_DIR (same env vars as eval/system_model/loader.py, see its
-docstring) to run against another campaign instead, e.g. the v3 benchmark
--- see eval/run_batch_full_graph.py's docstring for the full set of env
-vars to pair with it (EVAL_SYSTEM_MODEL_DIR, EVAL_INTENT_FILE too).
+Reads eval/benchmark/scenarios.json and writes under eval/baselines/results/.
 
 Usage (from the project root):
     PYTHONPATH=src venv/bin/python3 "eval/baselines/run_batch.py" --baseline direct \\
@@ -33,7 +26,6 @@ Usage (from the project root):
 
 import argparse
 import json
-import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -49,11 +41,8 @@ DEFAULT_N = 10
 DEFAULT_DELAY_S = 5.0
 MAX_RETRIES_ON_RATE_LIMIT = 3
 DEFAULT_RETRY_WAIT_S = 120.0  # OpenRouter's own Retry-After hint, observed
-RESULTS_DIR = Path(os.environ.get("EVAL_RESULTS_DIR", str(Path(__file__).parent / "results")))
-SCENARIOS_PATH = (
-    Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(Path(__file__).resolve().parents[1] / "experiment_500")))
-    / "scenarios.json"
-)
+RESULTS_DIR = Path(__file__).parent / "results"
+SCENARIOS_PATH = Path(__file__).resolve().parents[1] / "benchmark" / "scenarios.json"
 
 
 def _retry_info(exc: Exception) -> tuple[str, float] | None:

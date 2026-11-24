@@ -14,7 +14,7 @@
         "requirements": {
           "latency": 500
         },
-        "baseline_estimated_latency_ms": 473.101999
+        "baseline_estimated_latency_ms": 473.102243
       },
       {
         "flow_id": "f2",
@@ -29,7 +29,7 @@
         "requirements": {
           "latency": 500
         },
-        "baseline_estimated_latency_ms": 481.686668
+        "baseline_estimated_latency_ms": 481.686643
       }
     ]
   }

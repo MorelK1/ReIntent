@@ -1,4 +1,4 @@
-"""Runs a BATCH of eval/experiment_500 scenarios through the REAL, FULL graph
+"""Runs a BATCH of eval/benchmark scenarios through the REAL, FULL graph
 and appends one complete raw record per scenario (see
 run_sample_full_graph.py:run) to a JSONL file as it goes -- written
 incrementally, not buffered, so a crash or a rate-limit partway through
@@ -6,30 +6,11 @@ doesn't lose what already ran. No metric is computed here -- a later,
 separate scoring script compares each record's prediction against its
 ground_truth (also captured in the record).
 
-scenarios.json is NOT as evenly interleaved here as experiment_150's was:
-re-checked on 2026-11-03, the first 20 scenarios split STAY 45%/OFFLOAD
-35%/INFEASIBLE 20%, vs the full 500's own 32%/47%/21% -- STAY is visibly
-over-represented and OFFLOAD under-represented in a small scenarios[:n]
-prefix. A `limit` well under ~100 is therefore a biased subset, not a
-representative one; shuffle or stratify explicitly if a small n matters.
-No stratified-subset file exists for this dataset either way, unlike
-public_safety's e2e_samples.json. NOT re-checked against benchmark_v3's own
-scenarios.json (different ratios -- 38/49/13, see its summary.json) -- a
-small `limit` there needs its own interleaving check before trusting it.
+A `limit` well under the full 500 is a biased subset, not a representative
+one (scenarios.json isn't shuffled); shuffle or stratify explicitly if a
+small n matters.
 
-Reads eval/experiment_500/scenarios.json and writes under eval/results/ by
-default; set EVAL_EXPERIMENT_DIR and EVAL_RESULTS_DIR (same env vars as
-loader.py, see its docstring) to run against another campaign instead,
-e.g. the v3 benchmark:
-    EVAL_SYSTEM_MODEL_DIR=eval/system_model_normalized \\
-    EVAL_EXPERIMENT_DIR=eval/benchmark_v3 \\
-    EVAL_INTENT_FILE=intent_v3/intents_v3.json \\
-    EVAL_RESULTS_DIR=eval/results_v3 \\
-    PYTHONPATH=src venv/bin/python3 eval/run_batch_full_graph.py ...
-
-Rate-limit handling copied from
-expérimentations/public_safety/run_batch_full_graph.py (pure
-OpenRouter/network concern, unrelated to which dataset is being run).
+Reads eval/benchmark/scenarios.json and writes under eval/results/.
 
 model/explanation_model/prompt_strategy are left unset by default (None),
 resolved to OPENROUTER_MODEL (.env) -- pass --model (and optionally
@@ -43,7 +24,6 @@ Usage (from the project root):
 
 import argparse
 import json
-import os
 import sys
 import time
 from datetime import datetime, timezone
@@ -61,14 +41,8 @@ DEFAULT_N = 10
 DEFAULT_DELAY_S = 5.0
 MAX_RETRIES_ON_RATE_LIMIT = 3
 DEFAULT_RETRY_WAIT_S = 120.0  # OpenRouter's own Retry-After hint, observed
-# Same EVAL_EXPERIMENT_DIR as loader.py (see its own docstring) -- kept in
-# sync here only because this script needs the scenario_id LIST up front
-# (to slice [:limit]), not any scenario content itself; loader.py is still
-# what actually resolves each scenario's requirements/decision. EVAL_RESULTS_DIR
-# keeps a v3 (or any other) campaign's output out of eval/results/, which is
-# experiment_500-only.
-RESULTS_DIR = Path(os.environ.get("EVAL_RESULTS_DIR", str(Path(__file__).parent / "results")))
-SCENARIOS_PATH = Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(Path(__file__).parent / "experiment_500"))) / "scenarios.json"
+RESULTS_DIR = Path(__file__).parent / "results"
+SCENARIOS_PATH = Path(__file__).parent / "benchmark" / "scenarios.json"
 
 
 def _retry_info(exc: Exception) -> tuple[str, float] | None:
@@ -141,12 +115,10 @@ def main(
         skip_necessity_checker=skip_necessity_checker,
     )  # built once, reused
 
-    # Ablation runs land in their own sibling directory, not mixed into
-    # RESULTS_DIR -- same scenarios/models, different pipeline shape, kept
-    # separate so a later scoring pass never accidentally pools the two.
-    # Derived from RESULTS_DIR's own name (not hardcoded "results") so this
-    # still lands next to a non-default RESULTS_DIR (e.g. EVAL_RESULTS_DIR=
-    # eval/results_v3 -> eval/results_v3_ablation, not eval/results_ablation).
+    # Ablation runs land in their own sibling directory (eval/results_ablation),
+    # not mixed into RESULTS_DIR -- same scenarios/models, different pipeline
+    # shape, kept separate so a later scoring pass never accidentally pools
+    # the two.
     results_dir = (
         RESULTS_DIR.parent / f"{RESULTS_DIR.name}_ablation" if skip_necessity_checker else RESULTS_DIR
     )

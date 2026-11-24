@@ -11,22 +11,21 @@ dist/
 testbench.ipynb
 state_space_prompt_permissive.py
 expérimentations/public_safety/
-# Raw per-campaign evaluation outputs for experiment_500 (large, superseded
-# by benchmark_v3 -- not needed for review, regenerable by re-running the
-# corresponding eval script against OpenRouter if ever needed). benchmark_v3's
-# own results/baselines/results_v3 are intentionally NOT ignored: reviewers
-# need to see the actual prompts/code/results/approaches for the reported
-# benchmark.
-eval/results/
-eval/results_ablation/
-eval/baselines/results/
 
 # Editor lock files
 .~lock.*#
 
-# Superseded datasets -- fully replaced by experiment_500 / benchmark_v3,
-# kept only historically; intents.json (150-set) and experiment_150/ are
-# referenced solely by intent_store.py's one-off `carry` migration, already
-# executed (see intents_500.json's carried_over_from provenance field).
-eval/experiment_150/
-intent/intents.json
+# Old toy-example demo (single running-example scenario) and the data/
+# modules it alone depends on -- unrelated to eval/'s real benchmark.
+data/
+scripts/
+src/agent/utils/config.py
+src/agent/utils/data_loader.py
+
+# Brute-force decision engine -- superseded by decision_engine_cp_sat.py
+# (the one actually wired into graph.py); never imported by it or by
+# infeasibility_diagnosis.py.
+src/agent/nodes/decision_engine.py
+src/agent/utils/csp_solver.py
+src/agent/utils/csp_checks.py
+tests/test_decision_engine.py

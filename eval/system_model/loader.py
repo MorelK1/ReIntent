@@ -1,8 +1,7 @@
 """Loader: eval/system_model's ARVR benchmark (scenario-driven) onto our real
 schemas (Node, Link, Service, Flow) -- field renaming/adaptation only, no
 engine logic duplicated here. necessity_checker_node/decision_engine_node/
-intent_grounding_node run UNMODIFIED on the result, same pattern as
-expérimentations/public_safety/loader.py.
+intent_grounding_node run UNMODIFIED on the result.
 
 `fixed_placement` (C1/C5 in services.json) is passed through to Service and
 enforced by both solvers (see utils/csp_solver.py:solve_placement and
@@ -15,19 +14,14 @@ SUBTRACTING each node's background cpu/ram from its capacity at load time
 richer "background service" modeling that would be needed for
 background_mips to matter too.
 
-Which campaign's data this reads is controlled by 3 independent env vars
-(EVAL_SYSTEM_MODEL_DIR / EVAL_EXPERIMENT_DIR / EVAL_INTENT_FILE, see their
-definitions just below) -- unset, this is exactly today's experiment_500
-behavior. Set all three to run against the v3 benchmark instead:
-    EVAL_SYSTEM_MODEL_DIR=eval/system_model_normalized
-    EVAL_EXPERIMENT_DIR=eval/benchmark_v3
-    EVAL_INTENT_FILE=intent_v3/intents_v3.json
+DATA_DIR/EXPERIMENT_DIR/INTENT_FILE point at the one benchmark this repo
+ships (nodes/links/services/flows in this directory, scenarios in
+eval/benchmark/, intents in intent/intents_v3.json).
 """
 
 import csv
 import json
 import math
-import os
 from pathlib import Path
 
 from agent.model.schemas import Flow, Link, Node, Service
@@ -35,31 +29,9 @@ from agent.model.schemas import Flow, Link, Node, Service
 _HERE = Path(__file__).parent
 _REPO_ROOT = _HERE.parents[1]
 
-# Three independent axes, each overridable on its own so a campaign can mix
-# and match (e.g. the normalized system model against its own benchmark_v3
-# scenarios, or any other combination) -- same env-var-override pattern as
-# intent_v3/intent_store.py's INTENT_SET/INTENT_SCENARIOS. Unset, every
-# default below reproduces today's experiment_500 behavior exactly.
-#
-# EVAL_SYSTEM_MODEL_DIR: nodes/links/services/flows source (this directory
-#   by default; eval/system_model_normalized for the 2-decimal-rounded
-#   variant).
-# EVAL_EXPERIMENT_DIR: scenarios.json + summary.json (baseline_p0) source
-#   (eval/experiment_500 by default; eval/benchmark_v3 for the v3 campaign
-#   -- same scenario schema, independently regenerated against the
-#   normalized system model, see eval/benchmark_v3/summary.json).
-# EVAL_INTENT_FILE: the natural-language intents file load_intent() reads
-#   (intent/intents_500.json by default; intent_v3/intents_v3.json for v3
-#   -- a different filename AND a different top-level directory, so this
-#   is a full path, not just a directory to join a fixed name onto).
-DATA_DIR = Path(os.environ.get("EVAL_SYSTEM_MODEL_DIR", str(_HERE)))
-# experiment_500 supersedes experiment_150 as of 2026-11-03 -- same system
-# model, same scenario schema, a larger independently-drawn stratified
-# sample (500 vs 150). NOT a superset: a given scenario id (e.g.
-# "ARVR-000001") resolves to a DIFFERENT generated scenario in each set --
-# true of benchmark_v3 too, against the SAME scenario_id space.
-EXPERIMENT_DIR = Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(_HERE.parent / "experiment_500")))
-INTENT_FILE = Path(os.environ.get("EVAL_INTENT_FILE", str(_REPO_ROOT / "intent" / "intents_500.json")))
+DATA_DIR = _HERE
+EXPERIMENT_DIR = _HERE.parent / "benchmark"
+INTENT_FILE = _REPO_ROOT / "intent" / "intents_v3.json"
 
 # Scenario requirements use "e2e_latency" for what our schema calls "latency"
 # -- cpu/ram already match our own kpi_type spelling, so only this one entry
@@ -138,8 +110,7 @@ def load_intent(scenario_id: str) -> dict:
     """The INTENT_FILE entry for scenario_id -- "intent" is the
     natural-language text to feed intent_grounding_node; the rest (plan,
     mentions, n_words, review_status) is generation metadata, never fed to
-    the model itself (see intent/intent_generation_report_500.md /
-    intent_v3/intent_generation_report_v3.md)."""
+    the model itself (see intent/intent_generation_report_v3.md)."""
     with open(INTENT_FILE) as f:
         intents = json.load(f)
     return next(i for i in intents if i["scenario_id"] == scenario_id)

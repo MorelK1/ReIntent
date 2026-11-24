@@ -6,7 +6,7 @@ and anything that still fails keeps an error placeholder (with the fresh
 exception message this time, not a stale "see console log above").
 
 Exists because run_batch_full_graph.py only knows how to run the first N
-scenarios of experiment_500 -- there's no built-in way to target an explicit,
+scenarios of benchmark -- there's no built-in way to target an explicit,
 sparse set of scenario_ids, which is what re-running just the failures needs.
 
 Reuses run_with_retry from run_batch_full_graph.py (same retry/backoff

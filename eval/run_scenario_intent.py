@@ -1,6 +1,6 @@
 """Runs ONE real natural-language intent through the REAL, FULL graph
 (intent_grounding -> necessity_checker -> decision_engine -> explanation)
-against one eval/experiment_500 scenario's system model -- a single manual
+against one eval/benchmark scenario's system model -- a single manual
 sanity check before building out the full 500-scenario campaign.
 
 Usage:
@@ -21,7 +21,7 @@ SCENARIO_ID = "ARVR-000001"
 # FEASIBLE/OFFLOAD test: 2 ram floors (C4 AR Rendering, C2 Object
 # Recognition), ground truth decision=OFFLOAD, minimum_migrations=1,
 # moved_components=[4] (AR Rendering) -- see
-# eval/experiment_500/scenarios.json. Used to check the FEASIBLE
+# eval/benchmark/scenarios.json. Used to check the FEASIBLE
 # explanation now that explain_moved_services (pipeline.py) emits raw
 # "MOVE: ..." facts instead of pre-written sentences -- the model should
 # compose its own "why this service moved" wording from that data plus
