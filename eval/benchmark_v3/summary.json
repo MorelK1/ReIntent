@@ -1,0 +1,83 @@
+{
+  "total": 500,
+  "seed": 42,
+  "requested_ratios": {
+    "STAY": 0.38,
+    "OFFLOAD": 0.49,
+    "INFEASIBLE": 0.13
+  },
+  "target_counts": {
+    "STAY": 190,
+    "OFFLOAD": 245,
+    "INFEASIBLE": 65
+  },
+  "actual_counts": {
+    "STAY": 190,
+    "OFFLOAD": 245,
+    "INFEASIBLE": 65
+  },
+  "candidate_attempts": 726,
+  "unique_candidate_signatures": 650,
+  "selection": "stratified after independent classification; NOT an unbiased estimate of real-world frequency",
+  "numeric_granularity": {
+    "cpu_vcpu": "0.5",
+    "ram_gb": "0.5",
+    "latency_ms": "1"
+  },
+  "categories": {
+    "single_service": {
+      "STAY": 31,
+      "OFFLOAD": 16
+    },
+    "cross_service": {
+      "STAY": 42,
+      "OFFLOAD": 37
+    },
+    "multiservice": {
+      "OFFLOAD": 24,
+      "STAY": 20,
+      "INFEASIBLE": 1
+    },
+    "single_flow": {
+      "OFFLOAD": 44,
+      "INFEASIBLE": 12,
+      "STAY": 19
+    },
+    "both_flows": {
+      "OFFLOAD": 15,
+      "STAY": 9,
+      "INFEASIBLE": 9
+    },
+    "service_plus_flow": {
+      "STAY": 54,
+      "OFFLOAD": 77,
+      "INFEASIBLE": 25
+    },
+    "multi_service_both_flows": {
+      "OFFLOAD": 32,
+      "INFEASIBLE": 18,
+      "STAY": 15
+    }
+  },
+  "baseline_p0": {
+    "C1": 12,
+    "C2": 4,
+    "C3": 6,
+    "C4": 4,
+    "C5": 8
+  },
+  "baseline_budgets_ms": {
+    "f1": 500.0,
+    "f2": 500.0
+  },
+  "baseline_latencies_ms": {
+    "f1": 473.102243,
+    "f2": 481.686643
+  },
+  "latency_formula": "processing: 1000*workload_mi/mips; networking: shortest path by sum(1000*output_size_Mb/bandwidth_mbps + RTT_ms/2)",
+  "background_applications": [
+    2,
+    3,
+    4
+  ]
+}

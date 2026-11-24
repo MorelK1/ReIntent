@@ -1,0 +1,5598 @@
+{
+  "set": "v3",
+  "scenarios_file": "/home/claude/data/scenarios.json",
+  "scenarios_sha256": "0d1a5e4ebc1cdeadb04ed65f9a3ac998e168f4e578a831079635b8d74b4a16ee",
+  "intents_file": "intents_v3.json",
+  "generated_at": "2026-11-15T23:23:16+00:00",
+  "n_scenarios": 500,
+  "n_entries": 500,
+  "complete": true,
+  "order_matches_scenarios": true,
+  "entries_with_errors": 0,
+  "entries_with_warnings": 102,
+  "n_mentions": 1053,
+  "levels": {
+    "1": 210,
+    "2": 315,
+    "3": 317,
+    "4": 211
+  },
+  "number_in_words": {
+    "count": 105,
+    "share": 0.0997,
+    "by_kpi": {
+      "e2e_latency": 34,
+      "cpu": 45,
+      "ram": 26
+    },
+    "by_level": {
+      "1": 24,
+      "2": 24,
+      "3": 36,
+      "4": 21
+    }
+  },
+  "levels_by_kpi": {
+    "cpu": {
+      "1": 62,
+      "2": 102,
+      "3": 94,
+      "4": 61
+    },
+    "ram": {
+      "1": 55,
+      "2": 92,
+      "3": 93,
+      "4": 67
+    },
+    "e2e_latency": {
+      "1": 93,
+      "2": 121,
+      "3": 130,
+      "4": 83
+    }
+  },
+  "designations_by_level": {
+    "1": {
+      "id+name": 3,
+      "id": 207
+    },
+    "2": {
+      "name": 315
+    },
+    "3": {
+      "role": 187,
+      "flow": 130
+    },
+    "4": {
+      "context": 211
+    }
+  },
+  "designation_text_coverage": 1047,
+  "semantic_check": {
+    "file": "semantic_check_v3.json",
+    "agree": 500,
+    "disagree": 0,
+    "not_checked": 0
+  },
+  "revisions": [
+    {
+      "scenario_id": "ARVR-000002",
+      "previous_intent": "Could we make sure C4 (AR Rendering) has at least 4 vCPUs, and give whatever works out what is actually in each captured frame no less than 4000 millicores of compute?",
+      "reason": "relecture du pilote : désignation L4 de C2 ambiguë avec C3 (000002) ; formulation L4 de C4 peu naturelle (000004)"
+    },
+    {
+      "scenario_id": "ARVR-000004",
+      "previous_intent": "Since the new overlay pack landed the overlay painter is gasping, 4 virtual CPUs minimum, and the end-to-end latency of f1 has to come in at 474 ms or less.",
+      "reason": "relecture du pilote : désignation L4 de C2 ambiguë avec C3 (000002) ; formulation L4 de C4 peu naturelle (000004)"
+    },
+    {
+      "scenario_id": "ARVR-000013",
+      "previous_intent": "Overlays lag behind head turns, so camera-to-overlay has to land in 436 ms or less.",
+      "reason": "relecture après vérification sémantique : chemin de latence partiel (013, 025, 139) ; rang d'étape dépendant du comptage de la capture (085)"
+    },
+    {
+      "scenario_id": "ARVR-000025",
+      "previous_intent": "Recognition-to-screen in 417 ms, max.",
+      "reason": "relecture après vérification sémantique : chemin de latence partiel (013, 025, 139) ; rang d'étape dépendant du comptage de la capture (085)"
+    },
+    {
+      "scenario_id": "ARVR-000042",
+      "previous_intent": "Goal for the next iteration: AR Rendering running on at least 9500 millicores and recognition-to-display time held to 458 ms or less.",
+      "reason": "vérification sémantique indépendante : désignation L4 de C3 lisible comme C1/C3/C5 (000057) ; désignations de latence ne couvrant qu'une partie du chemin, pas le bout-en-bout (000042, 000065)"
+    },
+    {
+      "scenario_id": "ARVR-000057",
+      "previous_intent": "Object Recognition needs 4.5 vCPUs at minimum, the processing step common to both chains needs 6500 mCPU or more, and the AR element generator's memory floor is 4 GB.",
+      "reason": "vérification sémantique indépendante : désignation L4 de C3 lisible comme C1/C3/C5 (000057) ; désignations de latence ne couvrant qu'une partie du chemin, pas le bout-en-bout (000042, 000065)"
+    },
+    {
+      "scenario_id": "ARVR-000062",
+      "previous_intent": "The AR Rendering Flow has to get much snappier, 356 ms end to end, and the stage feeding the display with overlays needs ten vCPUs at minimum.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000065",
+      "previous_intent": "Detection-to-glass latency budget: 387 ms, hard ceiling.",
+      "reason": "vérification sémantique indépendante : désignation L4 de C3 lisible comme C1/C3/C5 (000057) ; désignations de latence ne couvrant qu'une partie du chemin, pas le bout-en-bout (000042, 000065)"
+    },
+    {
+      "scenario_id": "ARVR-000085",
+      "previous_intent": "The AR chain's third stage needs 5 vCPUs at minimum, and the Object Recognition Flow should finish within 486 ms.",
+      "reason": "relecture après vérification sémantique : chemin de latence partiel (013, 025, 139) ; rang d'étape dépendant du comptage de la capture (085)"
+    },
+    {
+      "scenario_id": "ARVR-000104",
+      "previous_intent": "Object Recognition should run with at least 3.5 GB of memory, and the time it takes for a detected object to show up on screen must not exceed 461 ms.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000129",
+      "previous_intent": "f1 may now take up to five hundred and twenty-five milliseconds end to end, but overlay delivery must shrink to 472 ms; Object Recognition needs 4 vCPUs at minimum and the AR overlay builder 3.5 GB of RAM at minimum.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000138",
+      "previous_intent": "Detections must reach the screen within 458 ms, while the AR Rendering Flow is allowed to stretch to 529 ms; resource-wise, the scene-context processor needs 6 vCPUs or more and the recognition chain's second stage 2500 MB or more.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000139",
+      "previous_intent": "Scene Processing memory floor: 11 GB. Recognition round trip, end to end: 442 ms ceiling.",
+      "reason": "relecture après vérification sémantique : chemin de latence partiel (013, 025, 139) ; rang d'étape dépendant du comptage de la capture (085)"
+    },
+    {
+      "scenario_id": "ARVR-000145",
+      "previous_intent": "Hard latency targets from now on: 380 ms for the AR Rendering Flow and 446 ms for the chain that runs frames through the detector.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000156",
+      "previous_intent": "The Object Recognition Flow needs to finish within 416 ms, and the capture-to-rendered-overlay path within three hundred and eighty ms.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000165",
+      "previous_intent": "Could AR Rendering have 4.5 vCPUs at minimum, with the camera-to-recognized-object time kept at 467 ms or less?",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000173",
+      "previous_intent": "f2: 487 ms at most. Also, the recognition chain's first processing stage needs five gigabytes of memory as its minimum.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000175",
+      "previous_intent": "We expect Object Recognition to run on at least 8 vCPUs and detection results to reach the screen within 0.426 seconds.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000178",
+      "previous_intent": "Give the scene-context engine nine and a half vCPUs or more, and keep the detect-and-display round trip at 437 ms or less.",
+      "reason": "vérification sémantique indépendante : désignation de latence ne couvrant qu'une partie du chemin (début à la détection ou fin avant l'affichage), ou rang d'étape dépendant du comptage de la capture ; reformulée en bout-en-bout capture→affichage"
+    },
+    {
+      "scenario_id": "ARVR-000182",
+      "previous_intent": "Tighter end-to-end targets for each experience: whatever goes through the detector, 447 ms; the AR overlays, 463 ms.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000191",
+      "previous_intent": "Latency targets: recognized objects on screen in 485 ms or less, AR Rendering Flow in 483 ms or less. Resources: C4 memory at 3.5 GB or more, and the stage both chains share in the middle at 6.5 vCPUs or more.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000200",
+      "previous_intent": "Raise Object Recognition's memory floor to 2.5 GB, and make sure recognition results reach the screen within 456 ms.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000264",
+      "previous_intent": "Is it reasonable to ask for 8.5 vCPUs on AR Rendering while keeping the object recognition chain within 436 ms end to end?",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000309",
+      "previous_intent": "Let's target four hundred and fifty-three milliseconds end to end for the Object Recognition Flow.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000323",
+      "previous_intent": "Small tightening on the AR Rendering Flow: 497 ms end to end.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000328",
+      "previous_intent": "Stricter latency all round, f1 at 449 ms and the AR rendering pipeline at three hundred and ninety-six milliseconds, plus Scene Processing with 7.5 vCPUs or more and the object-detecting component with 5 GB or more.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000358",
+      "previous_intent": "To hit 390 ms on the Object Recognition Flow end to end, the stage only the recognition chain contains needs 5.5 GB of memory at minimum.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000375",
+      "previous_intent": "Latency goals: the object recognition chain at 486 ms and f2 at 469 ms. Resource goals: Object Recognition with 3 GB of memory and the stage between scene processing and the display on the AR side with 4.5 vCPUs, both minimums.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    },
+    {
+      "scenario_id": "ARVR-000431",
+      "previous_intent": "Given the faster 384 ms target on the Object Recognition Flow, the scene-context processor will need 11 vCPUs or more.",
+      "reason": "relecture finale : comparateur implicite ou ambigu (« targets », « ask for », « to hit », valeur sans borne) rendu explicite ; point de départ de la latence précisé (191, 200)"
+    }
+  ],
+  "repetition": {
+    "openings_2w": [
+      [
+        "object recognition",
+        7
+      ],
+      [
+        "the ar",
+        7
+      ],
+      [
+        "the recognition",
+        7
+      ],
+      [
+        "the object",
+        7
+      ],
+      [
+        "scene processing",
+        6
+      ],
+      [
+        "c3 needs",
+        6
+      ],
+      [
+        "could the",
+        6
+      ],
+      [
+        "we can",
+        5
+      ],
+      [
+        "please give",
+        5
+      ],
+      [
+        "give the",
+        5
+      ]
+    ],
+    "openings_3w_used_3plus": [
+      [
+        "the ar rendering",
+        6
+      ],
+      [
+        "the recognition chain",
+        4
+      ],
+      [
+        "the component that",
+        3
+      ],
+      [
+        "the object recognition",
+        4
+      ],
+      [
+        "please give the",
+        3
+      ],
+      [
+        "could ar rendering",
+        3
+      ]
+    ],
+    "top_4grams": [
+      [
+        "the object recognition flow",
+        63
+      ],
+      [
+        "the ar rendering flow",
+        49
+      ],
+      [
+        "5 gb of memory",
+        44
+      ],
+      [
+        "ms end to end",
+        33
+      ],
+      [
+        "5 vcpus or more",
+        32
+      ],
+      [
+        "and the ar rendering",
+        30
+      ],
+      [
+        "or more and the",
+        26
+      ],
+      [
+        "vcpus or more and",
+        24
+      ],
+      [
+        "5 vcpus at minimum",
+        24
+      ],
+      [
+        "5 vcpus and the",
+        22
+      ],
+      [
+        "ms and the ar",
+        19
+      ],
+      [
+        "the scene context processor",
+        18
+      ],
+      [
+        "5 gb or more",
+        18
+      ],
+      [
+        "of memory or more",
+        17
+      ],
+      [
+        "of memory at minimum",
+        16
+      ]
+    ],
+    "near_duplicates_jaccard_ge_0.6": [
+      [
+        "ARVR-000088",
+        "ARVR-000408",
+        0.619
+      ],
+      [
+        "ARVR-000215",
+        "ARVR-000272",
+        0.609
+      ],
+      [
+        "ARVR-000413",
+        "ARVR-000447",
+        0.6
+      ]
+    ]
+  },
+  "entries": [
+    {
+      "scenario_id": "ARVR-000001",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000002",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C4 ('the stage the recognition chain goes through but the rendering chain skips') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 33,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000003",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000004",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the last stop before the display on the AR side') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 43,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000005",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000006",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 34,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000007",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000008",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightened' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'relax' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000009",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000010",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000011",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000012",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000013",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000014",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000015",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "f2/e2e_latency: désignation de flux contenant un indice de f1 ('the chain that skips object detection altogether') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000016",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/ram: désignation contenant aussi des indices de C1 ('the component that detects and identifies objects in captured frames') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000017",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000018",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000019",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000020",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the shared middle stage of both chains') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000021",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000022",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000023",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000024",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000025",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 5,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000026",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 52,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000027",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000028",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000029",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000030",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000031",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the last stage before the display on the overlay path') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000032",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage between detection and display on the Object Recognition Flow') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000033",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000034",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000035",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'extra time' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "f1/e2e_latency: désignation de flux contenant un indice de f2 ('the chain that never touches the renderer') : à trancher par la vérification sémantique",
+        "même début que l'une des 4 intentions précédentes"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000036",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000037",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000038",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000039",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "même début que l'une des 4 intentions précédentes"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000040",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000041",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000042",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000043",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000044",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "f2/e2e_latency: désignation de flux contenant un indice de f1 ('The chain that bypasses object detection') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000045",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000046",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 35,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000047",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'squeezed' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000048",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000049",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 37,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000050",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000051",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000052",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the stage the display waits on for overlays') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 33,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000053",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000054",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000055",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C3 ('the stage that tags objects before scene processing on the recognition side') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000056",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000057",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage both chains share between capture and display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 31,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000058",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000059",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 34,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000060",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage that receives the detector's output') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000061",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000062",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the stage feeding the display with overlays') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000063",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000064",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000065",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000066",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000067",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000068",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000069",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000070",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tighter' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'leeway' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right after it on that chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 46,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000071",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000072",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000073",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C3 ('whatever consumes scene output on the AR side') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000074",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 44,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000075",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000076",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right before the renderer') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000077",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000078",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000079",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000080",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "même début que l'une des 4 intentions précédentes"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000081",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000082",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightens' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'relaxed' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "C4/ram: désignation contenant aussi des indices de C5 ('the overlay stage that sits ahead of the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000083",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000084",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "ouverture 'the ar rendering' déjà utilisée 3 fois ou plus"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000085",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('The AR chain's last stage before the display') : à trancher par la vérification sémantique",
+        "même début que l'une des 4 intentions précédentes"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000086",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000087",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 36,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000088",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000089",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000090",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000091",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000092",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 44,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000093",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage that consumes object detections') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000094",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000095",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "ouverture 'the ar rendering' déjà utilisée 3 fois ou plus"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000096",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('whatever both chains pass through between capture and output') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 36,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000097",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000098",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000099",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000100",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000101",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000102",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('The stage the detector hands off to') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000103",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000104",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000105",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C3 ('the stage after Scene Processing that only the AR chain uses') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000106",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000107",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000108",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000109",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000110",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000111",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000112",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000113",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage sandwiched between capture and AR Rendering on its chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000114",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000115",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000116",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/ram: désignation sans indice lexical de C2 ('the stage exclusive to that chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000117",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000118",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000119",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000120",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightened' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'relaxed' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000121",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000122",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000123",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000124",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000125",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right after capture on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000126",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000127",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "f2/e2e_latency: désignation de flux contenant un indice de f1 ('the detector-free chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000128",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000129",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 44,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000130",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage right after capture on the rendering chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 46,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000131",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000132",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000133",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000134",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tighten' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'extra time' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000135",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000136",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage that consumes its output') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000137",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'stricter' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'more lenient' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "C2/cpu: désignation sans indice lexical de C2 ('the step between capture and scene processing on f1') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000138",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/ram: désignation contenant aussi des indices de C1 ('the stage right after capture on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 46,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000139",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000140",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000141",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000142",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C3 ('the stage that turns processed scenes into overlays') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000143",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000144",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000145",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000146",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right before it on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000147",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000148",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000149",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the step that hands overlays to the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000150",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000151",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 36,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000152",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation sans indice lexical de C4 ('the stage after scene processing') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000153",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000154",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the overlay-side stage just before display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000155",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000156",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000157",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000158",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000159",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000160",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000161",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000162",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C2 ('the stage the rendering chain has but the recognition chain doesn't') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000163",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C1 ('the stage right after capture on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000164",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000165",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000166",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000167",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000168",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000169",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 48,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000170",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000171",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000172",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000173",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/ram: désignation contenant aussi des indices de C1 ('the recognition chain's first stage after capture') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000174",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000175",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000176",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000177",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000178",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000179",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000180",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation sans indice lexical de C4 ('the stage downstream of scene processing that the recognition chain skips') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000181",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000182",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000183",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000184",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "mot de nombre possible hors valeur déclarée : 'one' (vérifier qu'il n'est pas un comptage)",
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage it feeds') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000185",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000186",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000187",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000188",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 33,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000189",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the AR-path stage just upstream of the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000190",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000191",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage both chains share in the middle') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 41,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000192",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000193",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000194",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000195",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation sans indice lexical de C4 ('the stage between scene processing and the display on that chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000196",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000197",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000198",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000199",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000200",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000201",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000202",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage between capture and the renderer on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000203",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000204",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000205",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000206",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the AR chain's stage right before display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000207",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000208",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000209",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000210",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000211",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000212",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage it hands results to') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000213",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000214",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000215",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000216",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000217",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000218",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000219",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000220",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 29,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000221",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000222",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000223",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage that takes detections as input') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 41,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000224",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000225",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 37,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000226",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000227",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000228",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000229",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000230",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000231",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000232",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000233",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the AR chain's stage before display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000234",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "ouverture 'the ar rendering' déjà utilisée 3 fois ou plus"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000235",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000236",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000237",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage it passes its results to') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000238",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000239",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000240",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000241",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'squeeze' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'extra time' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000242",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000243",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000244",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000245",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000246",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000247",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000248",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000249",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage feeding it') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 36,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000250",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000251",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000252",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000253",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000254",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000255",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000256",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/ram: désignation contenant aussi des indices de C1 ('whatever identifies objects in captured frames') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000257",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000258",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage right after it on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000259",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000260",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000261",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000262",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000263",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000264",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000265",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage both chains rely on between capture and display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000266",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000267",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000268",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000269",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 40,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000270",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000271",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C5 ('the AR chain's stage before the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000272",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000273",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000274",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000275",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000276",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000277",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000278",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000279",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000280",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000281",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightens' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'relaxed' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000282",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right after capture on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000283",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000284",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000285",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000286",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000287",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C1, C3 ('the step between capture and Scene Processing on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000288",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000289",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000290",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage the detector hands off to') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 30,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000291",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000292",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000293",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000294",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C3, C5 ('the stage between Scene Processing and the display on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000295",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000296",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000297",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000298",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000299",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 33,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000300",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('The only shared stage that is neither capture nor display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000301",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000302",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000303",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000304",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000305",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C3 ('The recognition side's step before scene processing') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000306",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000307",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000308",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000309",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000310",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 33,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000311",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000312",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000313",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000314",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000315",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000316",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage just before it on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000317",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000318",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 35,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000319",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000320",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000321",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000322",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000323",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 14,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000324",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightens' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage both chains share between capture and display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000325",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000326",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000327",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000328",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 37,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000329",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000330",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000331",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C1 ('the stage right after capture on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000332",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000333",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000334",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage right before the renderer') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 25,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000335",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000336",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage both chains share in the middle') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000337",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('The stage that hands its results to AR Rendering') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000338",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000339",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000340",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 41,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000341",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000342",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000343",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000344",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'leeway' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "ouverture 'the recognition chain' déjà utilisée 3 fois ou plus"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000345",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000346",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000347",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000348",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000349",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000350",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000351",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000352",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000353",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage that consumes the detector's output') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000354",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000355",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000356",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000357",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000358",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000359",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000360",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000361",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000362",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000363",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "même début que l'une des 4 intentions précédentes"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000364",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('The AR chain's stage just before the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000365",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000366",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000367",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000368",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000369",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('Its upstream neighbour on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000370",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000371",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000372",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000373",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000374",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage both chains share in the middle') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000375",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/cpu: désignation contenant aussi des indices de C3, C5 ('the stage between scene processing and the display on the AR side') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 41,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000376",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000377",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage it receives its input from') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000378",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000379",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000380",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000381",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation contenant aussi des indices de C2 ('The stage that turns detections into scene context') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000382",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000383",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000384",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000385",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000386",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000387",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000388",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000389",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000390",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the AR chain's stage before the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000391",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000392",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000393",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000394",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000395",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 34,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000396",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000397",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000398",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000399",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000400",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000401",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 6,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000402",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000403",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 9,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000404",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000405",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage the AR renderer receives its input from') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000406",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000407",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000408",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000409",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000410",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000411",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000412",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000413",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "ouverture 'the object recognition' déjà utilisée 3 fois ou plus"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000414",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000415",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000416",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000417",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage right before the renderer') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000418",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000419",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000420",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000421",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/ram: désignation sans indice lexical de C3 ('the stage just ahead of the renderer') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 35,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000422",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000423",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000424",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000425",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000426",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000427",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000428",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'leeway' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000429",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000430",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000431",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": true,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000432",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 7,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000433",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000434",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000435",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the stage the display gets overlays from') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000436",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000437",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000438",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000439",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000440",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000441",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000442",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000443",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000444",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 27,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000445",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tighten' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000446",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 8,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000447",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000448",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000449",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 10,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000450",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the AR chain's stage before the display') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 28,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000451",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 18,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000452",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000453",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000454",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000455",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000456",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000457",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000458",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000459",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000460",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 32,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000461",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 20,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000462",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C2/cpu: désignation contenant aussi des indices de C3 ('the stage feeding scene processing on the recognition chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 24,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000463",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C4/ram: désignation contenant aussi des indices de C5 ('the stage between it and the display on the AR chain') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000464",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 38,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000465",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000466",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 22,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000467",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "C3/cpu: désignation sans indice lexical de C3 ('the stage both chains share in the middle') : à trancher par la vérification sémantique"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 26,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000468",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'tightened' dans une phrase qui porte aussi une exigence de sens opposé : relire",
+        "'relaxed' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 34,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000469",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000470",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000471",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000472",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000473",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000474",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000475",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000476",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000477",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000478",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000479",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 31,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000480",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'extend' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 39,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000481",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000482",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000483",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000484",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 16,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000485",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000486",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 11,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000487",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000488",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 19,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000489",
+      "status": "ok",
+      "errors": [],
+      "warnings": [
+        "'trimmed' dans une phrase qui porte aussi une exigence de sens opposé : relire"
+      ],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 29,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000490",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 5,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000491",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 17,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000492",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 13,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000493",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 35,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000494",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 42,
+      "n_requirements": 4
+    },
+    {
+      "scenario_id": "ARVR-000495",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 12,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000496",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 23,
+      "n_requirements": 3
+    },
+    {
+      "scenario_id": "ARVR-000497",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 14,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000498",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    },
+    {
+      "scenario_id": "ARVR-000499",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 15,
+      "n_requirements": 1
+    },
+    {
+      "scenario_id": "ARVR-000500",
+      "status": "ok",
+      "errors": [],
+      "warnings": [],
+      "semantic_check": "agree",
+      "revised": false,
+      "n_words": 21,
+      "n_requirements": 2
+    }
+  ]
+}
