@@ -1,6 +1,6 @@
 # ReIntent
 
-Intent-driven service reconfiguration for the Cloud-Edge-IoT continuum.
+ReIntent: Intent-Driven Reconfiguration for Evolving QoS Requirements in the Cloud-Edge Continuum
 
 Given a natural-language operator intent (e.g. "object recognition now needs
 4.5 GB of memory"), the pipeline extracts its structured requirements,
