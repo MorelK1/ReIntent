@@ -1,0 +1,50 @@
+[
+  {
+    "nodeID": 12,
+    "nodeTier": 0,
+    "characteristics": {
+      "cpu": 503,
+      "cpuVcpu": 2,
+      "memory": 2617,
+      "disk": 4781.2,
+      "os": "Linux-ARM64",
+      "reliability": 0.9740578723176406
+    }
+  },
+  {
+    "nodeID": 13,
+    "nodeTier": 0,
+    "characteristics": {
+      "cpu": 585,
+      "cpuVcpu": 2,
+      "memory": 3243,
+      "disk": 7531.1,
+      "os": "Linux-ARM64",
+      "reliability": 0.984896028180396
+    }
+  },
+  {
+    "nodeID": 14,
+    "nodeTier": 0,
+    "characteristics": {
+      "cpu": 1330,
+      "cpuVcpu": 3,
+      "memory": 3111,
+      "disk": 5243.3,
+      "os": "Android-ARM64",
+      "reliability": 0.9738966226462317
+    }
+  },
+  {
+    "nodeID": 15,
+    "nodeTier": 0,
+    "characteristics": {
+      "cpu": 534,
+      "cpuVcpu": 3,
+      "memory": 2831,
+      "disk": 8134.1,
+      "os": "Linux-ARM64",
+      "reliability": 0.9837643400591441
+    }
+  }
+]

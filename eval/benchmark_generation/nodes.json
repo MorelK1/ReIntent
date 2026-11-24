@@ -1,0 +1,86 @@
+[
+  {
+    "nodeID": 1,
+    "nodeTier": 1,
+    "characteristics": {
+      "cpu": 1641,
+      "cpuVcpu": 4,
+      "memory": 7885,
+      "disk": 14195,
+      "platform": "Linux-ARM64",
+      "reliabilityScore": 0.9870318310936398
+    }
+  },
+  {
+    "nodeID": 2,
+    "nodeTier": 1,
+    "characteristics": {
+      "cpu": 1730,
+      "cpuVcpu": 2,
+      "memory": 8122,
+      "disk": 31173.2,
+      "platform": "Linux-ARM64",
+      "reliabilityScore": 0.9816565072149053
+    }
+  },
+  {
+    "nodeID": 3,
+    "nodeTier": 2,
+    "characteristics": {
+      "cpu": 5990,
+      "cpuVcpu": 13,
+      "memory": 13718,
+      "disk": 123392.4,
+      "platform": "Linux-x86_64",
+      "reliabilityScore": 0.9916067025200486
+    }
+  },
+  {
+    "nodeID": 4,
+    "nodeTier": 2,
+    "characteristics": {
+      "cpu": 11138,
+      "cpuVcpu": 9,
+      "memory": 9906,
+      "disk": 86318,
+      "platform": "Linux-x86_64",
+      "reliabilityScore": 0.9878999451088848
+    }
+  },
+  {
+    "nodeID": 5,
+    "nodeTier": 2,
+    "characteristics": {
+      "cpu": 5422,
+      "cpuVcpu": 14,
+      "memory": 14427,
+      "disk": 88141.7,
+      "platform": "Linux-x86_64",
+      "reliabilityScore": 0.9927698279678818
+    }
+  },
+  {
+    "nodeID": 6,
+    "nodeTier": 3,
+    "characteristics": {
+      "cpu": 25002,
+      "cpuVcpu": 28,
+      "memory": 43143,
+      "disk": 141552.7,
+      "platform": "Linux-x86_64",
+      "reliabilityScore": 0.9962384499920697
+    }
+  },
+  {
+    "nodeID": 7,
+    "nodeTier": 3,
+    "characteristics": {
+      "cpu": 22856,
+      "cpuVcpu": 29,
+      "memory": 48313,
+      "disk": 230909.6,
+      "platform": "Linux-ARM64",
+      "reliabilityScore": 0.9958926268179507
+    }
+  }
+]
