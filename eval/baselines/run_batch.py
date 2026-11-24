@@ -1,0 +1,163 @@
+"""Runs a BATCH of eval/experiment_500 scenarios through a single-LLM
+baseline (see run_sample.py:run) and appends one complete raw record per
+scenario to a JSONL file as it goes -- written incrementally, not buffered,
+so a crash or a rate-limit partway through doesn't lose what already ran.
+No metric is computed here -- a later, separate scoring script compares
+each record's prediction against its ground_truth (also captured in the
+record).
+
+Same rate-limit handling as eval/run_batch_full_graph.py (copied, same
+pure OpenRouter/network concern, unrelated to which baseline is running).
+
+scenarios.json's first-N-scenarios bias note (see run_batch_full_graph.py's
+own docstring) applies here too -- a `limit` well under ~100 is a biased
+subset, not a representative one. Not re-checked against benchmark_v3's
+own scenarios.json (different ratios, see its summary.json).
+
+model/prompt_strategy are left unset by default (None), resolved to
+OPENROUTER_MODEL (.env) / the baseline's own DEFAULT_PROMPT_STRATEGY --
+pass --model/--prompt-strategy to pick explicitly without touching this
+file.
+
+Reads eval/experiment_500/scenarios.json and writes under
+eval/baselines/results/ by default; set EVAL_EXPERIMENT_DIR and
+EVAL_RESULTS_DIR (same env vars as eval/system_model/loader.py, see its
+docstring) to run against another campaign instead, e.g. the v3 benchmark
+-- see eval/run_batch_full_graph.py's docstring for the full set of env
+vars to pair with it (EVAL_SYSTEM_MODEL_DIR, EVAL_INTENT_FILE too).
+
+Usage (from the project root):
+    PYTHONPATH=src venv/bin/python3 "eval/baselines/run_batch.py" --baseline direct \\
+        [N] [--delay SECONDS] [--model MODEL] [--prompt-strategy STRATEGY]
+"""
+
+import argparse
+import json
+import os
+import sys
+import time
+from datetime import datetime, timezone
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "src"))
+
+import openai  # noqa: E402
+
+from run_sample import run  # noqa: E402
+
+DEFAULT_N = 10
+DEFAULT_DELAY_S = 5.0
+MAX_RETRIES_ON_RATE_LIMIT = 3
+DEFAULT_RETRY_WAIT_S = 120.0  # OpenRouter's own Retry-After hint, observed
+RESULTS_DIR = Path(os.environ.get("EVAL_RESULTS_DIR", str(Path(__file__).parent / "results")))
+SCENARIOS_PATH = (
+    Path(os.environ.get("EVAL_EXPERIMENT_DIR", str(Path(__file__).resolve().parents[1] / "experiment_500")))
+    / "scenarios.json"
+)
+
+
+def _retry_info(exc: Exception) -> tuple[str, float] | None:
+    """Returns (reason, wait_s) for a known RETRYABLE rate-limit shape, or
+    None if exc isn't one we know how to recover from (caller fails fast).
+    See eval/run_batch_full_graph.py for the full rationale behind each
+    shape -- copied verbatim, this is a pure OpenRouter/network concern,
+    unrelated to which baseline is running."""
+    if isinstance(exc, openai.APIConnectionError):  # not a subclass of APIStatusError -- separate branch
+        return "connection_error", 15.0
+    if not isinstance(exc, openai.APIStatusError):
+        return None
+    body = exc.body if isinstance(exc.body, dict) else {}
+    metadata = body.get("error", {}).get("metadata", {})
+
+    if exc.status_code == 402:
+        if metadata.get("reason") != "in_flight_budget_exhausted":
+            return None
+        retry_after = exc.response.headers.get("Retry-After") if exc.response is not None else None
+        try:
+            return "in_flight_budget_exhausted", float(retry_after)
+        except (TypeError, ValueError):
+            return "in_flight_budget_exhausted", DEFAULT_RETRY_WAIT_S
+
+    if exc.status_code == 429:
+        reset_ms = metadata.get("headers", {}).get("X-RateLimit-Reset")
+        try:
+            wait_s = max(0.0, float(reset_ms) / 1000 - time.time()) + 2.0  # +2s buffer past the reset instant
+        except (TypeError, ValueError):
+            wait_s = DEFAULT_RETRY_WAIT_S
+        return "rate_limit_rpm", wait_s
+
+    return None
+
+
+def run_with_retry(scenario_id: str, baseline: str, **run_kwargs) -> dict | None:
+    """Returns the full record on success, or None on a non-retryable/
+    exhausted-retries failure (the caller logs an error record for it)."""
+    for attempt in range(1, MAX_RETRIES_ON_RATE_LIMIT + 1):
+        try:
+            return run(scenario_id, baseline, verbose=True, **run_kwargs)
+        except Exception as exc:  # noqa: BLE001 -- only a retryable rate-limit loops, anything else is fatal per-scenario
+            info = _retry_info(exc)
+            if info and attempt < MAX_RETRIES_ON_RATE_LIMIT:
+                reason, wait_s = info
+                print(f"{scenario_id}: rate-limited ({reason}), "
+                      f"attempt {attempt}/{MAX_RETRIES_ON_RATE_LIMIT}, waiting {wait_s:.0f}s before retrying...")
+                time.sleep(wait_s)
+                continue
+            if isinstance(exc, openai.APIStatusError) and exc.status_code == 402:
+                body = exc.body if isinstance(exc.body, dict) else {}
+                if body.get("error", {}).get("metadata", {}).get("reason") == "weight_exceeds_budget":
+                    print(f"{scenario_id}: ERROR -- OpenRouter account out of credits "
+                          f"(weight_exceeds_budget) -- not retrying, add credits to proceed.")
+                    return None
+            print(f"{scenario_id}: ERROR -- {exc}")
+            return None
+
+
+def main(limit: int, delay_s: float, baseline: str, model: str | None, prompt_strategy: str | None) -> None:
+    with open(SCENARIOS_PATH) as f:
+        all_scenarios = json.load(f)
+    scenario_ids = [s["id"] for s in all_scenarios[:limit]]
+
+    RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+    model_tag = (model or "default").replace("/", "-")
+    strategy_tag = prompt_strategy or "default"
+    timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    out_path = RESULTS_DIR / f"{baseline}__{model_tag}__{strategy_tag}__{timestamp}.jsonl"
+    print(f"Writing results to {out_path}\n")
+
+    n_ok = 0
+    n_error = 0
+    start = time.time()
+    with open(out_path, "a") as out:
+        for i, scenario_id in enumerate(scenario_ids, start=1):
+            record = run_with_retry(
+                scenario_id, baseline, model=model, prompt_strategy=prompt_strategy,
+            )
+            if record is None:
+                record = {
+                    "run_config": {"baseline": baseline, "model": model, "prompt_strategy": prompt_strategy},
+                    "scenario_id": scenario_id, "error": "see console log above",
+                }
+                n_error += 1
+            else:
+                n_ok += 1
+            out.write(json.dumps(record, ensure_ascii=False, default=str) + "\n")
+            out.flush()
+            print(f"[{i}/{len(scenario_ids)}] done ({time.time() - start:.0f}s elapsed)\n")
+            if i < len(scenario_ids) and delay_s > 0:
+                time.sleep(delay_s)
+
+    print(f"=== {n_ok} ok, {n_error} errors, written to {out_path} ===")
+    print("No metric computed here -- score later from the ground_truth field already in each record.")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("n", nargs="?", type=int, default=DEFAULT_N)
+    parser.add_argument("--delay", type=float, default=DEFAULT_DELAY_S,
+                         help="Seconds to wait between scenarios (default: %(default)s)")
+    parser.add_argument("--baseline", choices=["direct", "cot"], required=True)
+    parser.add_argument("--model", default=None, help="Overrides OPENROUTER_MODEL")
+    parser.add_argument("--prompt-strategy", default=None, choices=["zero_shot", "one_shot", "few_shot"])
+    args = parser.parse_args()
+    main(args.n, args.delay, args.baseline, args.model, args.prompt_strategy)

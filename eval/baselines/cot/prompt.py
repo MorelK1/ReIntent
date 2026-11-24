@@ -76,11 +76,11 @@ It is never counted as "moved" and must never be chosen as the service that move
 fix some OTHER service's or flow's requirement -- if capacity needs to be freed around \
 it, a different, non-fixed co-located service must move instead.
 - Each requirement you extract targets exactly one target: a service (for "cpu"/"ram") \
-or a flow (for "latency"), never a node. Set its target_type accordingly and target_id \
-to the matching service_id/flow_id from the provided lists. kpi_type is always exactly \
-one of the three words "cpu", "ram", or "latency" -- NEVER the internal field names \
-shown in the services list ("cpu_cores", "ram_gb"); those describe the data you're \
-given, they are not values you ever write into kpi_type yourself.
+or a flow (for "latency"), never a node. `target` is the matching service_id/flow_id from \
+the provided lists. `metric` is always exactly one of the three words "cpu", "ram", or \
+"latency" -- NEVER the internal field names shown in the services list ("cpu_cores", \
+"ram_gb"); those describe the data you're given, they are not values you ever write into \
+`metric` yourself.
 - An intent may state more than one requirement at once (e.g. "needs at least 12 vCPU \
 and 24GB of RAM" states two: a cpu one and a ram one, both targeting the same service). \
 - Each new requirement you extract REPLACES its target's existing baseline for that \
@@ -114,6 +114,11 @@ satisfied without it moving, the correct outcome is INFEASIBLE, not moving it an
 """
 
 _RULES = """Perform a structured, step-by-step analysis before producing the final decision. \
+These steps describe your INTERNAL reasoning process -- do not write them out as prose, \
+headings, or a narrated essay in your response. Your response is ONLY the JSON object at \
+the end of this section; everything each step below asks you to determine is captured \
+there through `requirements`, `verification`, and `migration_count` -- never as visible \
+step-by-step text.
 
 Step 1 — Requirement Identification \
 Identify every requirement expressed in the user intent. \
@@ -165,7 +170,8 @@ Provide a concise, factual explanation indicating:
 - Which components are migrated, when applicable.
 - How the decision addresses the updated requirements.
 
-Return a valid JSON object:
+Return ONLY the JSON object below -- no step headings, no narration, nothing before or \
+after it:
 
 {
   "requirements": [
