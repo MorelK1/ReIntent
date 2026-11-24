@@ -1,0 +1,6 @@
+model,pipeline,direct,cot
+gemini-2.5-flash-lite,0.0,0.2857,0.0
+gpt-oss-120b,0.0,0.0732,0.225
+gpt-oss-20b,0.0,0.2195,0.5
+llama-3.3-70b,0.0,0.1373,0.4643
+mistral-small-3.2-24b,0.0,0.3671,0.4935
