@@ -29,3 +29,12 @@ src/agent/nodes/decision_engine.py
 src/agent/utils/csp_solver.py
 src/agent/utils/csp_checks.py
 tests/test_decision_engine.py
+
+# NVIDIA/ChatNVIDIA backend -- unused now that OpenRouter is the only path;
+# config.yaml's sole reader (agent.utils.config) is already gone above.
+src/agent/utils/llm.py
+config/
+
+# Already broken (imports a benchmark_model module that doesn't exist
+# anywhere in this repo) -- leftover from an even earlier benchmark pass.
+eval/system_model/verify_latency.py
