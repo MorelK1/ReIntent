@@ -81,3 +81,7 @@ cd eval/benchmark_generation && python3 build_benchmark_normalized.py \
 ## Data sources
 
 `eval/system_model/nodes.csv` and `links.csv` are adapted from an ECSP-Sim-derived reference infrastructure (see `eval/system_model/loader.py`'s own notes on the adaptation).
+
+Every non-`.py` file in `eval/benchmark_generation/` (the raw infrastructure, topology, application, and placement inputs, and the normalized system model derived from them) originates from ECSP-Sim:
+
+> M. G. Herabad, J. Taheri, B. S. Ahmed, and C. Curescu, "Optimal Placement of Edge-to-Cloud AR/VR Services with Reconfiguration Cost," in *2024 IEEE/ACM 17th International Conference on Utility and Cloud Computing (UCC)*, Dec. 2024, pp. 37-46. doi: 10.1109/UCC63386.2024.00015.
