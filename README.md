@@ -7,7 +7,7 @@ Anonymous artefact for review.
 Given a natural-language operator intent (e.g. "object recognition now needs
 4.5 GB of memory"), the pipeline extracts its structured requirements,
 checks whether the current placement of services across nodes still
-satisfies them, and — only if not — searches for a new placement that does,
+satisfies them, and - only if not - searches for a new placement that does,
 using an exact CP-SAT solver (provably optimal, or a minimal set of
 conflicting constraints if no placement exists). A final step turns the
 decision into a short natural-language explanation.
@@ -76,7 +76,7 @@ cd eval/benchmark_generation && python3 build_benchmark_normalized.py \
 
 ## Not included, and why
 
-- **`.env`** — holds `OPENROUTER_API_KEY`; never committed. Copy `.env.example` and fill it in (see Setup above).
+- **`.env`** - holds `OPENROUTER_API_KEY`; never committed. Copy `.env.example` and fill it in (see Setup above).
 
 ## Data sources
 
