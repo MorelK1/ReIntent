@@ -1,7 +1,7 @@
 # Génération d'intentions — campagne V3 (benchmark AR/VR, 500 scénarios)
 
-**Statut : 500/500 intentions enregistrées** dans `intents_v3.json`, `review_status = llm_generated_auto_checked`.
-Aucune validation humaine indépendante n'a eu lieu. Audit : `validation_report_v3.json`.
+**Statut : 500/500 intentions enregistrées** dans `intents.json`, `review_status = llm_generated_auto_checked`.
+Aucune validation humaine indépendante n'a eu lieu. Audit : `validation_report.json`.
 
 ## 1. Méthode
 
@@ -40,8 +40,8 @@ les interdit. J'ai appliqué la règle la plus stricte (PROMPT) : aucune unité 
 
 Toutes les règles de SKILL.md et PROMPT_GENERATION_INTENTS.md sont conservées. Ajouts, dans l'ordre :
 
-1. **Organisation V3.** `INTENT_SET=v3` écrit dans `intents_v3.json`, `validation_report_v3.json` et
-   `semantic_check_v3.json`. `INTENT_SCENARIOS` fixe le chemin des scénarios. Les jeux 150 et 500 sont
+1. **Organisation V3.** `INTENT_SET=v3` écrit dans `intents.json`, `validation_report.json` et
+   `semantic_check.json`. `INTENT_SCENARIOS` fixe le chemin des scénarios. Les jeux 150 et 500 sont
    inchangés et leurs fichiers ne sont pas touchés.
 2. **Valeurs en toutes lettres.** La forme écrite ne contient aucun chiffre. Les mots sont convertis en décimal
    exact, puis comparés à `written_value` (lui-même × facteur d'unité = valeur du scénario). Grammaire admise :
@@ -77,7 +77,7 @@ proche en caractères. Elle a refusé à tort ARVR-000241 : dans « …up to 516
 « squeeze » visait bien 476. J'ai corrigé la règle (rattachement à la valeur suivante), ajouté un test de
 non-régression, et revalidé les 240 entrées déjà enregistrées sans aucun nouveau refus.
 
-**Tests de non-régression** (`test_intent_store_v3.py`, tous passants) :
+**Tests de non-régression** (`test_intent_store.py`, tous passants) :
 - parseur de nombres : 15 formes acceptées, 13 refusées ;
 - cas « mots faux, valeur déclarée juste » et chiffres dans une forme en lettres ;
 - nombre en lettres non déclaré ;
@@ -196,9 +196,9 @@ plafond explicite pour ces cas.
 
 | Fichier | Contenu |
 |---|---|
-| `intents_v3.json` | 500 intentions (texte, plan, mentions, métadonnées de révision) |
-| `validation_report_v3.json` | audit complet des 500 entrées (contrôles mécaniques et vérification sémantique) |
-| `semantic_check_v3.json` | résolutions à l'aveugle (cible, KPI, borne, justification) pour chaque expression |
+| `intents.json` | 500 intentions (texte, plan, mentions, métadonnées de révision) |
+| `validation_report.json` | audit complet des 500 entrées (contrôles mécaniques et vérification sémantique) |
+| `semantic_check.json` | résolutions à l'aveugle (cible, KPI, borne, justification) pour chaque expression |
 | `intent_store.py` | script adapté (rétrocompatible 150/500) |
-| `test_intent_store_v3.py` | tests de non-régression du validateur |
-| `intent_generation_report_v3.md` | ce rapport |
+| `test_intent_store.py` | tests de non-régression du validateur |
+| `intent_generation_report.md` | ce rapport |

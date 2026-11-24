@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Tests de non-régression du validateur V3 : nombres en lettres, sens par exigence, filtre des désignations.
 
-Lancer : python3 -I test_intent_store_v3.py   (aucune dépendance ; n'écrit aucun fichier)
+Lancer : python3 -I test_intent_store.py   (aucune dépendance ; n'écrit aucun fichier)
 """
 import sys
 from decimal import Decimal

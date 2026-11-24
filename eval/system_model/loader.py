@@ -16,7 +16,7 @@ background_mips to matter too.
 
 DATA_DIR/EXPERIMENT_DIR/INTENT_FILE point at the one benchmark this repo
 ships (nodes/links/services/flows in this directory, scenarios in
-eval/benchmark/, intents in intent/intents_v3.json).
+eval/benchmark/, intents in intent/intents.json).
 """
 
 import csv
@@ -31,7 +31,7 @@ _REPO_ROOT = _HERE.parents[1]
 
 DATA_DIR = _HERE
 EXPERIMENT_DIR = _HERE.parent / "benchmark"
-INTENT_FILE = _REPO_ROOT / "intent" / "intents_v3.json"
+INTENT_FILE = _REPO_ROOT / "intent" / "intents.json"
 
 # Scenario requirements use "e2e_latency" for what our schema calls "latency"
 # -- cpu/ram already match our own kpi_type spelling, so only this one entry
@@ -110,7 +110,7 @@ def load_intent(scenario_id: str) -> dict:
     """The INTENT_FILE entry for scenario_id -- "intent" is the
     natural-language text to feed intent_grounding_node; the rest (plan,
     mentions, n_words, review_status) is generation metadata, never fed to
-    the model itself (see intent/intent_generation_report_v3.md)."""
+    the model itself (see intent/intent_generation_report.md)."""
     with open(INTENT_FILE) as f:
         intents = json.load(f)
     return next(i for i in intents if i["scenario_id"] == scenario_id)

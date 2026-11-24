@@ -11,8 +11,8 @@ Commandes :
   blind-export OUT [A B]  exporte texte + expressions chiffrées (sans cible) pour la vérification sémantique
   audit                  revalide toutes les entrées enregistrées et écrit validation_report_<jeu>.json
 
-Jeu de scénarios : INTENT_SET=150 (défaut), 500 ou v3. Le chemin des scénarios peut être forcé par
-INTENT_SCENARIOS=/chemin/scenarios.json. Sorties : intents.json (150), intents_500.json, intents_v3.json.
+Jeu de scénarios : INTENT_SET=v3 (défaut). Le chemin des scénarios peut être forcé par
+INTENT_SCENARIOS=/chemin/scenarios.json. Sortie par défaut : intents.json.
 
 Les textes sont écrits à la main (voir SKILL.md) ; ce script les vérifie et les enregistre.
 """
@@ -28,14 +28,14 @@ from pathlib import Path
 from statistics import median
 
 ROOT = Path(__file__).resolve().parent
-# Jeu de scénarios : INTENT_SET=150 (défaut), 500 ou v3. Chaque jeu a son propre fichier de sortie ;
-# les fichiers des campagnes précédentes (intents.json, intents_500.json) ne sont jamais touchés en v3.
-SET = os.environ.get("INTENT_SET", "150")
+# Jeu de scénarios : INTENT_SET=v3 (défaut, le seul jeu que ce repo garde). Un autre jeu passé via
+# INTENT_SET garde l'ancienne convention de nommage suffixé (intents_<jeu>.json, etc.), au cas où.
+SET = os.environ.get("INTENT_SET", "v3")
 SCENARIOS = Path(os.environ["INTENT_SCENARIOS"]) if os.environ.get("INTENT_SCENARIOS") else (
-    ROOT.parent / "eval" / f"experiment_{SET}" / "scenarios.json")
-OUT = ROOT / ("intents.json" if SET == "150" else f"intents_{SET}.json")
-REPORT = ROOT / f"validation_report_{SET}.json"
-SEMANTIC = ROOT / f"semantic_check_{SET}.json"   # résolutions à l'aveugle (voir blind-export)
+    ROOT.parent / "eval" / "benchmark" / "scenarios.json")
+OUT = ROOT / ("intents.json" if SET == "v3" else f"intents_{SET}.json")
+REPORT = ROOT / ("validation_report.json" if SET == "v3" else f"validation_report_{SET}.json")
+SEMANTIC = ROOT / ("semantic_check.json" if SET == "v3" else f"semantic_check_{SET}.json")   # résolutions à l'aveugle (voir blind-export)
 
 REVIEW_STATUS = "llm_generated_auto_checked"
 
