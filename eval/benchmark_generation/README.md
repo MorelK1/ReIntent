@@ -1,10 +1,12 @@
-# Benchmark AR/VR — Placement initial hétérogène, C2 sur Edge
+# AR/VR Benchmark generator — normalized system model
 
-## Configuration de référence
+Generates `eval/benchmark/scenarios.json` and the data behind `eval/system_model/` from a raw infrastructure/placement description and a normalized (half-vCPU, half-GB, whole-ms) system model.
 
-Application 1, composants et versions conservés depuis le placement GA :
+## Reference configuration
 
-| Composant | Version | Nœud | Tier |
+Application 1, components and versions kept from the GA placement:
+
+| Component | Version | Node | Tier |
 |---|---|---|---|
 | C1 Vision Capture | V1 | N12 | User/IoT |
 | C2 Object Recognition | V3 | N4 | Edge |
@@ -12,39 +14,36 @@ Application 1, composants et versions conservés depuis le placement GA :
 | C4 AR Rendering | V5 | N4 | Edge |
 | C5 Display Output | V1 | N8 | Helper/IoT |
 
-Les applications 2–4 conservent leurs versions et placements GA, et constituent la charge de fond. Capacités CPU (MIPS), vCPU, RAM et stockage vérifiées pour toutes les applications ensemble.
+Applications 2-4 keep their GA versions and placements, and make up the background load. CPU (MIPS), vCPU, RAM, and storage capacities checked for all applications together.
 
-**SLO initiaux:** f1 = 500 ms, f2 = 500 ms. Latences initiales recalculées : f1 = 473,101999 ms, f2 = 481,686668 ms.
+**Reference SLOs:** f1 = 500 ms, f2 = 500 ms (`baseline_budget` in `benchmark_model_normalized.py`).
 
-## Fichiers
+## Files
 
-- `initial_placement.json` : les 20 affectations, incluant l'application cible et les applications de fond.
-- `system_model/nodes.csv` : 15 nœuds; vCPU, RAM/stockage en GB décimaux, CPU en MIPS.
-- `system_model/links.csv` : liens bidirectionnels, bande passante Mbps, délai unidirectionnel RTT/2 (ms).
-- `system_model/services.json` : C1–C5, versions sélectionnées, exigences, MI, tailles en Mb, placement.
-- `system_model/flows.json` : graphe des deux chemins applicatifs, budgets et latences de référence.
-- `system_model/background_loads.csv` : charge cumulative de App2–App4 par nœud.
-- `componentsConnections.json` : dépendances applicatives complètes.
-- `benchmark_model.py` : calcul des chemins les plus rapides, ressources, classifications et vérification du System Model.
-- `build_benchmark.py` : génération synthétique stratifiée du benchmark.
-- `output/experiment_500/` : 500 scénarios et statistiques de test.
+- `services.json`, `nodes.json`, `users.json`, `helpers.json`, `infraConnections.json`, `componentsConnections.json`, `placement_P0_app1_V1.json` — the raw simulator inputs: topology, application dependencies, component versions, packet sizes, and the initial placement. Kept only as the source of this non-numeric information.
+- `system_model_normalized/` — the canonical, already-normalized system model (`nodes.csv`, `links.csv`, `services.json`, `flows.json`, `background_loads.csv`, matching `eval/system_model/`). `benchmark_model_normalized.py` overrides every numeric quantity (vCPU, RAM, MIPS, bandwidth, propagation delay, workload) from these files, never from the raw simulator JSONs above.
+- `benchmark_model_normalized.py` — on import, cross-checks the raw simulator inputs against `system_model_normalized/` (placement, resource values, flow latencies, link bandwidth/delay, background load — raises on any mismatch), then builds the candidate-placement space, shortest-path latencies, and the `classify()` function that turns a set of requirement changes into a STAY/OFFLOAD/INFEASIBLE decision with the minimal migration set.
+- `build_benchmark_normalized.py` — the generator: samples a requirement change (one of 7 categories: single/cross/multi-service, single/both-flow, service+flow, multi-service+both-flows), rounds it to the normalized step (0.5 vCPU, 0.5 GB, 1 ms), classifies it with `benchmark_model_normalized.classify()`, and keeps sampling until the requested STAY/OFFLOAD/INFEASIBLE mix is reached.
+- `check_normalized_system.py` — standalone entry point for the same validation `benchmark_model_normalized.py` already runs on import.
 
-## Reproduire la génération
+## Reproducing the generation
 
-Lancer depuis le dossier du projet :
+Run from this folder:
 
 ```bash
-python3 build_benchmark.py --num-scenarios 500 --offload-ratio 0.60 --stay-ratio 0.30 --infeasible-ratio 0.10 --seed 42 --output-dir output/experiment_500
+python3 build_benchmark_normalized.py -n 500 \
+    --stay-ratio 0.38 --offload-ratio 0.49 --infeasible-ratio 0.13 --seed 42 \
+    --output-dir <some-dir>
 ```
 
-Résultat vérifié : STAY 150, OFFLOAD 300, INFEASIBLE 50. Le mélange est fixé *après classification*, non issu de fréquences observées en production.
+Verified result: STAY 190, OFFLOAD 245, INFEASIBLE 65 (726 candidate attempts), reproducing `eval/benchmark/scenarios.json` and `eval/system_model/` byte-for-byte. The mix is fixed *after classification*, not drawn from frequencies observed in production.
 
-## Conventions et limites
+## Conventions and limitations
 
-- La RAM et le stockage d'origine sont en MB ; exports System Model en GB = MB/1000 ; le solveur travaille en MB.
-- Les tailles de données sont en **Mb**, bande passante en **Mbps**. RTT source en secondes ; la latence de propagation d'un sens est RTT/2.
-- Délai communication par plus court chemin pondéré par `dataSize_Mb / bandwidth_Mbps + RTT_seconds / 2` pour chaque arc. Traitement = `cpuWorkloadMI / cpuMIPS_du_noeud`.
-- Les différences d'exigences de CPU/RAM modifient la demande réservée, **pas** la charge de traitement MI, les versions ni la topologie.
-- Le placement initial est **construit sous une contrainte de diversité Edge–Cloud**, pas une sortie optimale directe du GA.
-- Le modèle ne simule pas la congestion et les files d'attente ; les résultats ne démontrent pas les performances réelles d'un déploiement.
-- Les choix de budgets et les intervalles de génération sont des adaptations du contexte ECSP-Sim pour ce benchmark.
+- Original RAM and storage are in MB; the normalized system model exports GB = MB/1000; the model itself works in MB internally.
+- Data sizes are in **Mb**, bandwidth in **Mbps**. Source RTT is in seconds; one-way propagation delay is RTT/2.
+- Shortest-path communication delay is weighted by `dataSize_Mb / bandwidth_Mbps + RTT_seconds / 2` for each hop. Processing time = `cpuWorkloadMI / node_cpuMIPS`.
+- Changes to CPU/RAM requirements alter the reserved demand, **not** the processing workload (MI), the component version, or the topology.
+- The initial placement is **built under an Edge-Cloud diversity constraint**, not a direct optimal output of the GA.
+- The model does not simulate congestion or queuing; results do not demonstrate the real-world performance of an actual deployment.
+- Budget choices and generation ranges are adaptations of the ECSP-Sim context for this benchmark.
