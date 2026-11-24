@@ -76,11 +76,7 @@ cd eval/benchmark_generation && python3 build_benchmark_normalized.py \
 
 ## Not included, and why
 
-- **`data/`, `scripts/`, and the two modules only they used** (`agent/utils/config.py`, `agent/utils/data_loader.py`) — an early single-scenario demo, fully superseded by the real benchmark in `eval/`.
-- **The brute-force decision engine** (`agent/nodes/decision_engine.py`, `agent/utils/csp_solver.py`, `agent/utils/csp_checks.py`) — an alternative backend never wired into the graph, superseded by the CP-SAT one actually used.
-- **The NVIDIA/ChatNVIDIA backend** (`agent/utils/llm.py`) and its config (`config/config.yaml`) — OpenRouter is the only inference path used in the reported results.
-- **A broken diagnostic script** (`eval/system_model/verify_latency.py`) that imports a module no longer present in this repo — a leftover from an earlier iteration.
-- **Earlier benchmark iterations** (`experiment_500`, `experiment_150`) and their raw results, and the notebooks that only analyzed them — fully superseded by the single benchmark reported here.
+- **`.env`** — holds `OPENROUTER_API_KEY`; never committed. Copy `.env.example` and fill it in (see Setup above).
 
 ## Data sources
 
