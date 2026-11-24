@@ -68,8 +68,6 @@ _RULES = """Follow theses instructions when extracting requirements:
   the new value.
 - Do not calculate a new absolute requirement from a
   relative change alone, such as "increase CPU by 2 cores".
-- Qualitative requests without explicit quantitative
-  targets are outside the current extraction scope.
 
 2. TARGET GROUNDING
 - Ground requirements using only the provided application
@@ -78,8 +76,6 @@ _RULES = """Follow theses instructions when extracting requirements:
   descriptions.
 - Match flows using flow IDs, names, or service paths.
 - Return the exact service_id or flow_id from the context.
-- Never return a node ID, an invented ID, or a free-text
-  description as target_id.
 - If multiple targets match and the intended target
   cannot be identified unambiguously, do not guess.
 - Do not turn a local service processing-time requirement
@@ -90,8 +86,8 @@ _RULES = """Follow theses instructions when extracting requirements:
 3. COMPARATOR SEMANTICS
 - Two comparators are used: "gte" (at least / minimum)
   and "lte" (at most / maximum).
-- cpu and ram requirements are always a minimum capacity
-  constraint: use comparator "gte". A service's resource
+- cpu and ram requirements are a minimum capacity
+  constraint. A service's resource
   requirement states the floor it needs to run, not a
   ceiling -- having more than requested is fine.
 - latency requirements are always a maximum delay
@@ -102,11 +98,6 @@ _RULES = """Follow theses instructions when extracting requirements:
   "no less than" all indicate the cpu/ram minimum; "within",
   "at most", "no more than", "below", "must not exceed"
   all indicate the latency maximum.
-- A bare new CPU or RAM value with none of these explicit
-  words still means "gte"; a bare new latency value with
-  none of these explicit words still means "lte" -- the
-  wording only confirms the comparator, it never overrides
-  it to the opposite of what the KPI itself means here.
 - Do not extract unsupported comparison semantics.
 
 4. NUMERICAL VALUES AND UNITS
@@ -119,16 +110,7 @@ _RULES = """Follow theses instructions when extracting requirements:
 - Do not convert between CPU, memory, or time units.
 - Recognize common unit names and spelling variants,
   but return a supported unit label.
-- Examples:
-    "two CPU cores" -> value 2, unit "cores"
-    "500 millicores" -> value 500, unit "millicore"
-    "2048 MiB" -> value 2048, unit "MiB"
-    "50 milliseconds" -> value 50, unit "ms"
-- The downstream normalization step is responsible
-  for unit conversion.
 - Do not invent missing numerical values or units.
-- If the unit cannot be determined unambiguously,
-  do not extract the requirement.
 
 5. SOURCE SPAN
 - Each source_span must be an exact, contiguous

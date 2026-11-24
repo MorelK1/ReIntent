@@ -24,6 +24,7 @@ def build_graph(
     prompt_strategy: str = "zero_shot",
     explanation_model: str | None = None,
     include_explanation: bool = True,
+    skip_necessity_checker: bool = False,
 ):
     """model overrides OPENROUTER_MODEL (.env) for intent_grounding_node when
     given -- None keeps today's behavior exactly. prompt_strategy picks
@@ -44,6 +45,21 @@ def build_graph(
     substitute. Default True keeps every existing caller's behavior
     unchanged.
 
+    skip_necessity_checker=True builds a graph WITHOUT the necessity_checker
+    node at all -- intent_grounding connects directly to decision_engine,
+    which then runs on every scenario regardless of whether the current
+    placement would already have satisfied the requirements. This is the
+    "how much does necessity_checker actually matter" ablation: a true
+    removal, not a bypassed/ignored routing decision -- necessity_checker
+    is simply never added to the graph, so state["necessity_result"] stays
+    at whatever the caller's initial state set it to (typically None).
+    explanation.py's build_user_prompt handles necessity_result=None (and,
+    independently, decision_result.decision == {}) with the same neutral
+    wording it uses for the normal "nothing needed to move" case, so
+    explanation_node's own latency/content doesn't become a second,
+    unintended variable on top of decision_engine always running. Default
+    False keeps every existing caller's behavior unchanged.
+
     All of this exists so experimentation scripts can build a graph with a
     different model/strategy/shape without touching this file or the node
     implementations."""
@@ -56,29 +72,34 @@ def build_graph(
         "intent_grounding",
         lambda state: intent_grounding_node(state, model=model, prompt_strategy=prompt_strategy),
     )
-    graph.add_node("necessity_checker", necessity_checker_node)
     graph.add_node("decision_engine", decision_engine_node_cp_sat)
-
     graph.set_entry_point("intent_grounding")
-    graph.add_edge("intent_grounding", "necessity_checker")
+
+    if skip_necessity_checker:
+        graph.add_edge("intent_grounding", "decision_engine")
+    else:
+        graph.add_node("necessity_checker", necessity_checker_node)
+        graph.add_edge("intent_grounding", "necessity_checker")
 
     if include_explanation:
         graph.add_node("explanation", lambda state: explanation_node(state, model=explanation_model))
-        graph.add_conditional_edges(
-            "necessity_checker",
-            _route_after_necessity_check,
-            {"decision_engine": "decision_engine", "explanation": "explanation"},
-        )
+        if not skip_necessity_checker:
+            graph.add_conditional_edges(
+                "necessity_checker",
+                _route_after_necessity_check,
+                {"decision_engine": "decision_engine", "explanation": "explanation"},
+            )
         graph.add_edge("decision_engine", "explanation")
         graph.add_edge("explanation", END)
     else:
-        # Same routing labels from _route_after_necessity_check, just mapped
-        # straight to END instead of to an "explanation" node.
-        graph.add_conditional_edges(
-            "necessity_checker",
-            _route_after_necessity_check,
-            {"decision_engine": "decision_engine", "explanation": END},
-        )
+        if not skip_necessity_checker:
+            # Same routing labels from _route_after_necessity_check, just
+            # mapped straight to END instead of to an "explanation" node.
+            graph.add_conditional_edges(
+                "necessity_checker",
+                _route_after_necessity_check,
+                {"decision_engine": "decision_engine", "explanation": END},
+            )
         graph.add_edge("decision_engine", END)
 
     return graph.compile()

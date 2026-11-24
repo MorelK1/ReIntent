@@ -22,6 +22,7 @@ def explanation_node(state: AgentState, model: str | None = None) -> dict:
         state["services"],
         state["nodes"],
         state["flows"],
+        state["links"],
     )
     start = time.perf_counter()
     response = llm.invoke([("system", SYSTEM_PROMPT), ("human", user_prompt)])

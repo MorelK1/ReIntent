@@ -4,6 +4,7 @@ from typing import TypedDict
 
 from agent.model.schemas import (
     DecisionResult,
+    ExtractedRequirement,
     Flow,
     Link,
     NecessityCheckResult,
@@ -11,6 +12,7 @@ from agent.model.schemas import (
     Requirement,
     Service,
 )
+from agent.utils.requirement_validation import RejectedRequirement
 
 
 class AgentState(TypedDict):
@@ -39,6 +41,20 @@ class AgentState(TypedDict):
     extraction_elapsed_s: float | None
     extraction_token_usage: dict | None
     extraction_parsing_error: str | None
+    # The LLM's own output BEFORE validate_and_normalize -- distinct from
+    # `requirements` (which only ever holds survivors, unit-converted and
+    # requirement_id-assigned). Needed so a model-comparison campaign can
+    # score raw extraction accuracy against ground truth without that
+    # being conflated with validate_and_normalize's own strictness (a
+    # correct extraction a validation rule happens to reject, and a
+    # genuinely wrong extraction, would otherwise be indistinguishable --
+    # both just vanish from `requirements`). extraction_rejected carries
+    # each dropped candidate's own reason (see
+    # utils/requirement_validation.py:RejectedRequirement) -- never
+    # silently discarded, same "drop rather than guess" policy, but now
+    # with the evidence kept instead of thrown away.
+    extraction_raw: list[ExtractedRequirement]
+    extraction_rejected: list[RejectedRequirement]
     explanation_model: str | None
     explanation_elapsed_s: float | None
     explanation_token_usage: dict | None

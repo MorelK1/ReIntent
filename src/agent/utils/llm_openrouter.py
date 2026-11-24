@@ -18,7 +18,7 @@ load_dotenv(find_dotenv())
 
 _OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 _DEFAULT_TEMPERATURE = 0
-_DEFAULT_MAX_TOKENS = 4096
+_DEFAULT_MAX_TOKENS = 8192
 
 
 def _build_openrouter_chat_model(env_var: str, override: str | None = None) -> BaseChatModel:

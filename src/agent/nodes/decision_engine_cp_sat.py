@@ -31,6 +31,7 @@ from agent.utils.csp_constraints_cp_sat import (
     add_fixed_placement_constraints_cp_sat,
     add_latency_constraints_cp_sat,
 )
+from agent.utils.infeasibility_diagnosis import diagnose_infeasibility
 from agent.utils.pipeline import check_candidate_placement, explain_moved_services
 
 _KPI_TYPES_MODELED = ("cpu", "ram", "latency")
@@ -68,6 +69,10 @@ def decision_engine_node_cp_sat(state: AgentState) -> dict:
         # Proven infeasibility -- no candidate placement satisfies every
         # constraint, surfaced as an explicit INFEASIBLE outcome (see
         # explanation_node) rather than letting the pipeline crash outright.
+        # diagnose_infeasibility re-solves over the 2**N subsets of
+        # `requirements` alone (never touching this model/x) to find every
+        # MUS -- a handful of extra, cheap solves given N is always a
+        # small number of active requirements per intent.
         decision_result = DecisionResult(
             outcome="INFEASIBLE",
             decision={},
@@ -75,6 +80,7 @@ def decision_engine_node_cp_sat(state: AgentState) -> dict:
             requirements_satisfied=[],
             new_configuration={sid: s.current_node for sid, s in services.items()},
             search_trace=[f"CP-SAT solver status: {solver.StatusName(status)}"],
+            infeasibility_diagnosis=diagnose_infeasibility(requirements, services, nodes, links, flows),
         )
         return {"decision_result": decision_result}
     if status == cp_model.UNKNOWN:

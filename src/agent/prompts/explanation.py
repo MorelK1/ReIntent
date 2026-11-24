@@ -17,7 +17,9 @@ the model, rather than leaving it to infer the mapping itself.
 
 import re
 
-from agent.model.schemas import DecisionResult, Flow, NecessityCheckResult, Node, Requirement, Service
+from agent.model.schemas import DecisionResult, Flow, Link, NecessityCheckResult, Node, Requirement, Service
+from agent.utils.pipeline import KPI_TO_NODE_FIELD, effective_service_capacity, flow_latency_ms
+from agent.utils.pipeline import fmt_value as _fmt
 
 
 _ROLE = """You are an explanation assistant for an intent-driven
@@ -66,14 +68,9 @@ _RULES = """Follow these instructions :
 
 1. FACTUAL ACCURACY
 - Use only information provided in the execution context.
-- Never invent resource shortages, latency violations,
-  service movements, or reasons for a decision.
-- Do not infer individual relocation causes from
-  general violations or solver status.
-- If a reason is not available, explain the outcome
-  without inventing one.
-- Do not claim that services have been physically moved
-  unless execution is explicitly confirmed.
+- Never invent a reason, a resource shortage, a latency
+  violation, or a service movement that isn't explicitly
+  supported by that information.
 
 2. EXPLANATION CONTENT
 - Briefly explain the requested change.
@@ -83,15 +80,20 @@ _RULES = """Follow these instructions :
   services and their destinations.
 - Explain the main reasons for reconfiguration when
   they are supported by the provided information.
-- Avoid listing every numerical value or repeating
-  the complete execution trace.
 
 3. OUTCOME-SPECIFIC RULES
-- NO RECONFIGURATION NEEDED (necessity check only, no
-  decision result exists):
+- NO RECONFIGURATION NEEDED:
   Explain that the existing configuration already
   satisfies the updated requirements.
   Do not describe any relocation.
+  If current latency and/or current resource usage values
+  are supplied, use them to make this concrete instead of
+  only asserting it: state the actual margin for the
+  requirement(s) that were checked -- e.g. how much of a
+  node's capacity is used versus free, or how the current
+  latency compares to the requested target -- rather than
+  a bare "requirements are already satisfied" with no
+  numbers behind it.
 
 - FEASIBLE:
   Describe the proposed placement changes.
@@ -99,29 +101,85 @@ _RULES = """Follow these instructions :
   modeled requirements.
   Only claim minimum relocations when optimality
   has been established by the solver.
+  If a per-service move reason is supplied, phrase it
+  according to what it reports, not according to a fixed
+  wording: when it reports that staying on the current
+  node would have been feasible, explain that this
+  particular move was not strictly required by any
+  constraint -- it happened because the search preferred a
+  different overall configuration, not because the service
+  had to move. When it reports that staying would have been
+  infeasible, name the concrete reason supplied (which
+  constraint would have been violated) as why that move was
+  necessary.
 
 - INFEASIBLE:
-  Explain that no configuration satisfies all the
-  updated requirements under the modeled constraints.
-  Give a concrete reason only if it is explicitly
-  supported by the supplied information.
-  Make clear that no new configuration was applied.
+  State the sequence of events plainly, in this order: (1)
+  the current configuration does not satisfy the updated
+  requirements, (2) a new configuration was therefore
+  searched for, and (3) no configuration was found that
+  satisfies all of the updated requirements under the
+  modeled constraints. Never collapse this into only "the
+  current configuration doesn't satisfy the requirements,
+  so nothing was applied" -- that skips the fact that a
+  search was actually attempted and failed, as opposed to
+  never being attempted at all.
+  If a conflicting requirement group is supplied, name
+  it in plain language as the concrete reason -- and
+  phrase it according to its actual size: a single
+  requirement reported as infeasible on its own must be
+  described as impossible by itself, never framed as a
+  conflict "between" two requirements or as something
+  that fails only "all at once"; only a group of two or
+  more requirements that is reported together should be
+  described as a joint conflict that only arises when
+  they are combined.
+  If current latency and/or current resource usage values
+  are supplied, you may state them alongside the requested
+  targets so the operator can see both the requested and
+  current value for each affected flow or resource, not
+  only for the one that fails -- but these current values
+  are context only, showing how far today's placement is
+  from a target; neither is ever itself the thing that is
+  feasible or infeasible, and neither should be presented
+  as the reason reconfiguration failed -- only the
+  conflicting requirement group (or singleton) reported
+  above is the actual, proven reason. A service is free to
+  move to another node unless it is explicitly fixed in
+  place, so a current-placement resource shortfall on the
+  service's present node is never, by itself, "the"
+  blocking issue -- the real constraint, when one is
+  reported, is the conflict between requirements, which a
+  single node's free capacity does not resolve on its own.
+  Whenever you say a target is impossible, name the
+  REQUESTED value (the operator's own ceiling/floor), never
+  the current measured value in its place.
+  If a list of requirements not involved in any conflict
+  is supplied, state plainly that those targets can still
+  be met.
+  If no conflicting requirement group is supplied, give a
+  concrete reason only if it is explicitly supported by
+  the supplied information.
+  Make clear that, as a result, no new configuration was
+  applied and the current one remains in place.
 
 4. LANGUAGE AND STYLE
 - Address the operator directly.
-- Never refer to the operator as "the user".
-- Do not mention internal components, algorithms,
-  raw trace fields, or solver terminology.
+- Do not mention internal components, algorithms, or
+  solver terminology.
 - Refer to services and nodes by descriptive names
   when available, rather than bare identifiers.
 - Use clear, natural language suitable for an
-  operator without optimization expertise.
-- Avoid unnecessary technical explanations.
+  human operator without optimization expertise.
+- Always state a numeric requirement or diagnosis value
+  using the value and unit given in the Extracted
+  requirements / Decision sections. A quoted source span
+  shows the operator's own original wording for context
+  only -- never restate or recompute a value in a
+  different unit derived from it.
 
 5. OUTPUT
 - Write a short paragraph for simple cases.
-- Use at most two short paragraphs for complex cases.
-- Focus on the decision and the most relevant reasons.
 - Return only the explanation text.
 """
 
@@ -167,77 +225,217 @@ def _translate_ids(
     return text
 
 
+def _current_latency_section(
+    requirements: list[Requirement],
+    flows: dict[str, Flow],
+    services: dict[str, Service],
+    nodes: dict[str, Node],
+    links: list[Link],
+) -> str:
+    """Actual, current-placement latency for every flow an active latency
+    requirement targets -- computed directly here rather than read off
+    necessity_result.violated_constraints, which only ever keeps a FAILING
+    check (necessity_checker_node drops every check that already passes);
+    a flow that already meets its target would otherwise never have its
+    actual value surface anywhere, making it impossible for the model to
+    state "it currently runs at X ms" for that flow, only for the one that
+    overshoots. Silently skips a flow whose latency can't be evaluated
+    (flow_latency_ms raises ValueError on a disconnected infrastructure
+    graph) -- same "drop rather than guess" policy as elsewhere, and no
+    worse than the current total absence of this section."""
+    current_placement = {sid: s.current_node for sid, s in services.items()}
+    lines = []
+    for r in requirements:
+        if r.target_type != "flow" or r.kpi_type != "latency":
+            continue
+        flow = flows.get(r.target_id)
+        if flow is None:
+            continue
+        try:
+            actual = flow_latency_ms(flow, links, current_placement, services, nodes)
+        except ValueError:
+            continue
+        lines.append(f"  - {r.target_id}: currently {_fmt(actual)}{r.unit} (requested {_fmt(r.target_value)}{r.unit})")
+    return "Current latency under the existing placement:\n" + "\n".join(lines) + "\n\n" if lines else ""
+
+
+def _current_capacity_section(
+    requirements: list[Requirement],
+    services: dict[str, Service],
+    nodes: dict[str, Node],
+) -> str:
+    """The cpu/ram counterpart of _current_latency_section: for every node
+    hosting a service an active cpu/ram requirement targets, how much of
+    that resource is actually in use right now (summed across every
+    co-located service, via the same effective_service_capacity used by
+    pipeline.py:capacity_satisfied) against the node's capacity -- so a
+    NO RECONFIGURATION NEEDED outcome can be explained with a concrete
+    margin ("14 of 16 cores used, 2 free") instead of a bare, unsupported
+    "requirements are already satisfied". Computed directly for the same
+    reason as _current_latency_section: necessity_checker's
+    violated_constraints only ever keeps a FAILING check, so a node that
+    already has enough headroom would otherwise never have its usage
+    surface anywhere. One line per (node, resource) pair actually targeted,
+    not every node in the infrastructure -- deduplicated so two
+    requirements landing on the same node/resource don't repeat it."""
+    current_placement = {sid: s.current_node for sid, s in services.items()}
+    seen: set[tuple[str, str]] = set()
+    lines = []
+    for r in requirements:
+        if r.target_type != "service" or r.kpi_type not in KPI_TO_NODE_FIELD:
+            continue
+        node_id = current_placement.get(r.target_id)
+        node = nodes.get(node_id)
+        if node is None:
+            continue
+        node_field = KPI_TO_NODE_FIELD[r.kpi_type]
+        if (node_id, node_field) in seen:
+            continue
+        seen.add((node_id, node_field))
+        capacity = getattr(node, node_field)
+        hosted = [sid for sid in services if current_placement.get(sid) == node_id]
+        used = sum(effective_service_capacity(sid, node_field, services, requirements) for sid in hosted)
+        unit = "vCPU" if r.kpi_type == "cpu" else "GB"
+        lines.append(
+            f"  - {node_id} {r.kpi_type}: {_fmt(used)} of {capacity}{unit} used, "
+            f"{_fmt(capacity - used)}{unit} free"
+        )
+    return "Current resource usage under the existing placement:\n" + "\n".join(lines) + "\n\n" if lines else ""
+
+
 def build_user_prompt(
     intent_text: str,
     requirements: list[Requirement],
-    necessity_result: NecessityCheckResult,
+    necessity_result: NecessityCheckResult | None,
     decision_result: DecisionResult | None,
     services: dict[str, Service],
     nodes: dict[str, Node],
     flows: dict[str, Flow],
+    links: list[Link] | None = None,
 ) -> str:
+    links = links or []
     requirements_desc = "\n".join(
         f"- {r.requirement_id}: {r.target_type}:{r.target_id} {r.kpi_type} {r.comparator} "
-        f"{r.target_value}{r.unit} (source: \"{r.source_span}\")"
+        f"{_fmt(r.target_value)}{r.unit} (source: \"{r.source_span}\")"
         for r in requirements
     ) or "(none extracted)"
 
-    necessity_desc = (
-        f"status={necessity_result.status}\n"
-        f"violated_constraints={necessity_result.violated_constraints}"
-    )
+    current_latency_section = _current_latency_section(requirements, flows, services, nodes, links)
+    current_capacity_section = _current_capacity_section(requirements, services, nodes)
 
-    if decision_result is None:
-        decision_desc = "No reconfiguration was performed (necessity check found none needed)."
+    # graph.py's skip_necessity_checker ablation: decision_engine ran
+    # directly on the extracted requirements, with no necessity check at
+    # all beforehand. The "Necessity check:" section is omitted entirely
+    # below rather than described as skipped -- it's an internal pipeline
+    # detail, irrelevant to a reader of the explanation; decision_desc's
+    # own "No reconfiguration was performed" wording already says what
+    # matters (current placement was/is already sufficient) whether or not
+    # this section exists.
+    necessity_section = ""
+    if necessity_result is not None:
+        necessity_desc = (
+            f"status={necessity_result.status}\n"
+            f"violated_constraints={necessity_result.violated_constraints}"
+        )
+        necessity_section = f"Necessity check:\n{necessity_desc}\n\n"
+
+    if decision_result is None or (decision_result.outcome == "FEASIBLE" and not decision_result.decision):
+        # Same bare fields whether necessity_checker short-circuited before
+        # decision_engine ever ran (decision_result is None) or
+        # decision_engine ran anyway and confirmed zero moves were needed
+        # (decision_result.decision == {}) -- see graph.py's
+        # skip_necessity_checker. Kept to raw data, no pre-written
+        # conclusion: (1) so this node's own latency/content doesn't become
+        # a confound when measuring necessity_checker's end-to-end time
+        # contribution, (2) so the model derives "nothing needs to move"
+        # itself from placement_changes={} rather than being handed the
+        # sentence to repeat.
+        decision_desc = "outcome=FEASIBLE\nplacement_changes={}"
     elif decision_result.outcome == "INFEASIBLE":
-        search = "\n".join(
-            f"  - {line}" for line in decision_result.search_trace
-        ) or "  (none)"
+        # search_trace dropped: today it's always exactly one bare string
+        # ("CP-SAT solver status: INFEASIBLE"/"OPTIMAL"), strictly redundant
+        # with decision_result.outcome -- zero marginal information, and
+        # RULES section 4 tells the model never to use solver terminology
+        # anyway, so there's no reason to feed it solver terminology as
+        # input either. infeasibility_diagnosis (utils/infeasibility_diagnosis.py)
+        # is the real, concrete reason this outcome used to lack entirely:
+        # which requirement(s) jointly conflict (a MUS) -- diagnosis only,
+        # no relaxation/correction suggestion (deliberately out of scope,
+        # see that module's docstring).
+        req_by_id = {r.requirement_id: r for r in requirements}
+
+        def _describe(rid: str) -> str:
+            r = req_by_id.get(rid)
+            if r is None:
+                return rid
+            return f"{r.target_type}:{r.target_id} {r.kpi_type} {r.comparator} {_fmt(r.target_value)}{r.unit}"
+
+        diagnosis_desc = "(no further diagnosis available)"
+        diagnosis = decision_result.infeasibility_diagnosis
+        if diagnosis is not None and diagnosis.mus:
+            # Raw facts only -- a group's size (1 vs 2+) is data, not a
+            # pre-written sentence; RULES section 3 (INFEASIBLE) is what
+            # tells the model how to phrase a singleton versus a joint
+            # conflict, so the model composes the explanation itself
+            # instead of being handed the wording to repeat verbatim.
+            mus_lines = [
+                "  - group of " + str(len(group)) + ": " + " ; ".join(_describe(rid) for rid in group)
+                for group in diagnosis.mus
+            ]
+
+            # Every requirement NOT named in any MUS group is, by
+            # construction, not a source of the infeasibility.
+            mus_ids = {rid for group in diagnosis.mus for rid in group}
+            achievable_lines = [f"  - {_describe(r.requirement_id)}" for r in requirements if r.requirement_id not in mus_ids]
+
+            sections = [
+                "Minimal infeasible requirement group(s) found:\n" + "\n".join(mus_lines),
+            ]
+            if achievable_lines:
+                sections.append(
+                    "Requirement(s) not part of any infeasible group above:\n" + "\n".join(achievable_lines)
+                )
+            diagnosis_desc = "\n".join(sections)
         decision_desc = (
-            "outcome=INFEASIBLE: no candidate placement satisfies every "
-            "requirement simultaneously -- the configuration was left "
-            f"unchanged (current_configuration={decision_result.new_configuration}).\n"
-            f"search_trace (why no placement was found):\n{search}"
+            f"outcome=INFEASIBLE\n"
+            f"current_configuration={decision_result.new_configuration}\n"
+            f"{diagnosis_desc}"
         )
     else:
-        # resolution_trace is a flat list mixing two different kinds of
-        # lines: per-service move-reason lines and general per-node/
-        # per-flow capacity or latency checks. Pulled apart and labeled
-        # separately so the model doesn't have to find the one relevant
-        # line buried in the rest -- see pipeline.py:explain_moved_services
-        # (shared by both the brute-force and CP-SAT backends) for the two
-        # exact templates matched below.
+        # resolution_trace mixes per-service move-reason lines with
+        # general per-node/per-flow capacity/latency checks (every node,
+        # every flow, mostly "ok"). Only the move-reason lines are kept --
+        # see pipeline.py:explain_moved_services (shared by both solver
+        # backends), which tags each one with a "MOVE:" prefix precisely so
+        # this filter doesn't depend on matching English wording. The "ok"
+        # checks are dropped entirely: they're the one piece of
+        # information necessity_checker's violated_constraints can't
+        # provide (which SPECIFIC service moved and why, including a
+        # service that moved with no violation of its own, purely as a
+        # side effect of the search) is move_reasons; the "ok" checks add
+        # nothing an explanation needs, and RULES already says not to list
+        # every check -- no reason to send what we then tell it to ignore.
+        # The kept lines are raw facts ("service X->Y; staying was
+        # feasible/infeasible: ..."), never a pre-written sentence -- RULES
+        # section 3 (FEASIBLE) is what tells the model how to phrase each
+        # case, same pattern as the INFEASIBLE branch's MUS groups.
         move_reasons = [
-            line
-            for line in decision_result.resolution_trace
-            if " could not stay on " in line or " did not strictly need to move off " in line
-        ]
-        other_checks = [
-            line
-            for line in decision_result.resolution_trace
-            if line not in move_reasons
+            line[len("MOVE: ") :] for line in decision_result.resolution_trace if line.startswith("MOVE: ")
         ]
         move_reasons_desc = "\n".join(f"  - {line}" for line in move_reasons) or "  (none)"
-        other_checks_desc = "\n".join(f"  - {line}" for line in other_checks) or "  (none)"
-        search = "\n".join(
-            f"  - {line}" for line in decision_result.search_trace
-        ) or "  (none)"
         decision_desc = (
             f"outcome=FEASIBLE\n"
             f"placement_changes={decision_result.decision}\n"
             f"new_configuration={decision_result.new_configuration}\n"
-            f"Why each moved service moved (ground truth -- each service's own "
-            f"line is its one and only reason; never attribute one service's "
-            f"line to another):\n"
-            f"{move_reasons_desc}\n"
-            f"Other checks confirming the new placement is valid:\n{other_checks_desc}\n"
-            f"search_trace (how the search reached it):\n{search}"
+            f"Per-service move reasons:\n{move_reasons_desc}"
         )
 
     prompt = (
         f"User intent:\n\"{intent_text}\"\n\n"
         f"Extracted requirements:\n{requirements_desc}\n\n"
-        f"Necessity check:\n{necessity_desc}\n\n"
+        f"{current_latency_section}"
+        f"{current_capacity_section}"
+        f"{necessity_section}"
         f"Decision:\n{decision_desc}"
     )
     # Translated last, over the whole assembled prompt, so every id --

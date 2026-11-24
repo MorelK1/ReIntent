@@ -71,8 +71,6 @@ def intent_grounding_node(
     # too, deterministically, to every survivor. See
     # utils/requirement_validation.py for the full "drop rather than guess"
     # policy and each rejection reason.
-    # rejected isn't surfaced into AgentState yet -- available here for
-    # diagnostics if that's wanted later, not wired through today.
     requirements, rejected = validate_and_normalize(
         result.requirements, state["intent_text"], state["services"], state["flows"]
     )
@@ -83,4 +81,9 @@ def intent_grounding_node(
         "extraction_elapsed_s": elapsed_s,
         "extraction_token_usage": dict(token_usage) if token_usage else None,
         "extraction_parsing_error": str(parsing_error) if parsing_error else None,
+        # result.requirements/rejected, surfaced raw -- see
+        # states/state.py's own comment on why a model-comparison campaign
+        # needs both, not just `requirements` (the validated survivors).
+        "extraction_raw": result.requirements,
+        "extraction_rejected": rejected,
     }

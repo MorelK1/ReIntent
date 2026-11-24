@@ -87,11 +87,11 @@ KpiType = Literal["cpu", "ram", "latency"]
 # requirement -- see intent_grounding_node.
 Unit = Literal[
     # cpu -> vCPU
-    "vCPU", "CPU", "core", "cores", "millicore", "mCPU", "m",
+    "vCPU", "CPU", "core", "cores", "millicore", "mCPU", "m", "millicores", "virtual CPUs",
     # ram -> GB (decimal: KB/MB/GB/TB; binary: KiB/MiB/GiB/TiB)
     "KB", "MB", "GB", "TB", "KiB", "MiB", "GiB", "TiB",
     # latency -> ms
-    "µs", "us", "ms", "s", "seconds",
+    "µs", "us", "ms", "s", "seconds", "milliseconds", "microseconds",
 ]
 TargetType = Literal["service", "flow"]
 
@@ -138,6 +138,28 @@ class NecessityCheckResult(BaseModel):
     current_placement: dict[str, str] | None = None
 
 
+class InfeasibilityDiagnosis(BaseModel):
+    """Why decision_engine_cp_sat.py's full-requirements solve was
+    INFEASIBLE, found by testing every 2**N subset of the active
+    requirements (N is small -- a handful per intent, see
+    utils/infeasibility_diagnosis.py) rather than inspecting the solver's
+    internals. Never attributes blame to a baseline (static, non-active)
+    requirement: only the requirements THIS intent introduced or overrode
+    are ever toggled off, so a conflict against an untouched baseline
+    element can only be reported as "incompatible with the existing
+    configuration", never pinned on that specific baseline element -- a
+    deliberate, documented limitation, not an oversight. Deliberately
+    diagnosis-only: every minimal infeasible subset (MUS) of
+    requirement_ids, never a correction/relaxation suggestion -- the
+    explanation is meant to be a faithful trace of what the pipeline found,
+    not a recommendation engine."""
+
+    mus: list[list[str]] = Field(default_factory=list)  # every minimal infeasible subset of requirement_ids
+    # A subset whose feasibility the solver couldn't settle within its time
+    # limit -- never silently folded into mus as a guess.
+    unknown_subsets: list[list[str]] = Field(default_factory=list)
+
+
 class DecisionResult(BaseModel):
     # FEASIBLE: a valid placement was found (decision may still be empty if
     # the search converged back to the current one). INFEASIBLE: no
@@ -152,3 +174,6 @@ class DecisionResult(BaseModel):
     # chosen placement -- see utils/csp_checks.py.
     resolution_trace: list[str] = Field(default_factory=list)
     search_trace: list[str] = Field(default_factory=list)
+    # Only ever populated when outcome=="INFEASIBLE" -- see
+    # utils/infeasibility_diagnosis.py:diagnose_infeasibility.
+    infeasibility_diagnosis: InfeasibilityDiagnosis | None = None

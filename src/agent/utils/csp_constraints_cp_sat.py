@@ -19,6 +19,22 @@ from agent.utils.pipeline import (
 
 _Assignment = dict[str, dict[str, cp_model.IntVar]]
 
+# CP-SAT only accepts integer coefficients/bounds -- every cpu/ram/latency
+# value entering the model has to become one. Rounding directly to the
+# native unit (whole vCPUs, whole GB, whole ms) throws away everything past
+# the decimal point (e.g. 8.4 cores -> 8, a 0.4-core loss) -- large enough
+# to disagree with necessity_checker.py's exact-float checks on borderline
+# scenarios. Scaling by 1000 first -- i.e. working in millicores/MB-ish/µs,
+# all already-accepted Unit spellings (schemas.py) -- keeps three more
+# decimal digits before that same rounding happens, shrinking the worst-case
+# error by the same factor rather than eliminating the need for an integer
+# model at all (still inherent to CP-SAT, see decision_engine_cp_sat.py).
+_PRECISION_SCALE = 1000
+
+
+def _scaled_round(value: float) -> int:
+    return round(value * _PRECISION_SCALE)
+
 
 def add_capacity_constraints_cp_sat(
     model: cp_model.CpModel,
@@ -39,13 +55,14 @@ def add_capacity_constraints_cp_sat(
     OnlyEnforceIf needed, since it's no longer "check only the actively
     required service", it's "every service always counts, wherever it ends
     up" (x[sid][node_id] selects whether sid's footprint applies to node_id).
-    CP-SAT needs integer coefficients, so footprints/capacities are rounded.
+    CP-SAT needs integer coefficients, so footprints/capacities are scaled
+    (see _scaled_round) before rounding, not rounded directly.
     """
     for node_id, node in nodes.items():
         for node_field in ("cpu_cores", "ram_gb"):
-            capacity = round(getattr(node, node_field))
+            capacity = _scaled_round(getattr(node, node_field))
             total = sum(
-                round(effective_service_capacity(sid, node_field, services, requirements))
+                _scaled_round(effective_service_capacity(sid, node_field, services, requirements))
                 * x[sid][node_id]
                 for sid in services
             )
@@ -82,13 +99,16 @@ def _processing_delay_terms_cp_sat(
     x[service_id][n] rather than a single constant. Neither set -> 0,
     unchanged legacy behavior."""
     if service.wcet_ms is not None:
-        return round(service.wcet_ms)
+        return _scaled_round(service.wcet_ms)
     if service.workload_mi is not None:
         terms = []
         for n in node_ids:
             node = nodes.get(n)
             if node is not None and node.mips:
-                cost = round((service.workload_mi / node.mips) * 1000)
+                # The inner *1000 converts workload_mi/mips (seconds) to ms
+                # -- a unit conversion, distinct from _scaled_round's own
+                # precision scaling applied on top of that ms value.
+                cost = _scaled_round((service.workload_mi / node.mips) * 1000)
                 terms.append(cost * x[service_id][n])
         if terms:
             return sum(terms)
@@ -145,7 +165,7 @@ def add_latency_constraints_cp_sat(
                 if na == nb:
                     cost = 0
                 elif nb in delays:
-                    cost = round(delays[nb])
+                    cost = _scaled_round(delays[nb])
                 else:
                     # No path at all: forbid this pair outright rather than
                     # silently leaving it unpriced (which would let the
@@ -171,4 +191,4 @@ def add_latency_constraints_cp_sat(
             for sid in flow.path if sid in services
         )
         cumulative = processing_delay + sum(hop_cost_ms[edge] for edge in flow_pairs(flow))
-        model.Add(cumulative <= round(target))
+        model.Add(cumulative <= _scaled_round(target))

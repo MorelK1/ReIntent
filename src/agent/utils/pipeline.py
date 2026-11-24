@@ -20,6 +20,19 @@ KPI_TO_NODE_FIELD = {
 NODE_FIELD_TO_KPI = {v: k for k, v in KPI_TO_NODE_FIELD.items()}
 
 
+def fmt_value(value: float) -> str:
+    """Rounds a value to 3 significant figures -- the one canonical
+    rounding every human/LLM-facing numeric string in the pipeline goes
+    through (requirements, diagnosis values, and the capacity_satisfied/
+    latency_satisfied check reasons below), so the same quantity is never
+    shown at two different precisions depending which code path formatted
+    it. Scenario-generated values routinely carry 6+ decimal digits (e.g.
+    448.184205) that mean nothing operationally and that an LLM consumer
+    would otherwise either echo verbatim or re-round inconsistently
+    itself."""
+    return f"{value:.3g}"
+
+
 def flow_pairs(flow: Flow) -> list[tuple[str, str]]:
     """Consecutive (upstream, downstream) service_id pairs along flow.path."""
     return list(zip(flow.path, flow.path[1:]))
@@ -37,8 +50,8 @@ def all_flow_pairs(flows: list[Flow]) -> set[tuple[str, str]]:
 # vCPU is the canonical cpu unit -- "CPU"/"core"/"cores" are 1:1 synonyms,
 # "millicore"/"mCPU"/"m" follow the Kubernetes convention (1000m = 1 vCPU).
 _CPU_UNIT_FACTORS = {
-    "vCPU": 1.0, "CPU": 1.0, "core": 1.0, "cores": 1.0,
-    "millicore": 1 / 1000, "mCPU": 1 / 1000, "m": 1 / 1000,
+    "vCPU": 1.0, "CPU": 1.0, "core": 1.0, "cores": 1.0, "virtual CPUs": 1.0,
+    "millicore": 1 / 1000, "millicores": 1 / 1000, "mCPU": 1 / 1000, "m": 1 / 1000,
 }
 # GB is the canonical ram unit, decimal (1 GB = 1000 MB = 1_000_000 KB = ...).
 _RAM_UNIT_DECIMAL_FACTORS = {"KB": 1e-6, "MB": 1e-3, "GB": 1.0, "TB": 1e3}
@@ -47,7 +60,10 @@ _RAM_UNIT_DECIMAL_FACTORS = {"KB": 1e-6, "MB": 1e-3, "GB": 1.0, "TB": 1e3}
 # 2.147483648 GB, not 2.048 GB).
 _RAM_UNIT_BINARY_EXPONENTS = {"KiB": 10, "MiB": 20, "GiB": 30, "TiB": 40}
 # ms is the canonical latency unit.
-_LATENCY_UNIT_FACTORS = {"ms": 1.0, "µs": 1e-3, "us": 1e-3, "s": 1e3, "seconds": 1e3}
+_LATENCY_UNIT_FACTORS = {
+    "ms": 1.0, "milliseconds": 1.0, "µs": 1e-3, "us": 1e-3, "microseconds": 1e-3,
+    "s": 1e3, "seconds": 1e3,
+}
 
 
 def to_native_unit(value: float, unit: str, kpi_type: str) -> float | None:
@@ -301,7 +317,7 @@ def capacity_satisfied(
             ok = total <= capacity
             checks.append((
                 ok,
-                f"{node_field} on {node_id}: {total} of {capacity} used by {hosted} "
+                f"{node_field} on {node_id}: {fmt_value(total)} of {capacity} used by {hosted} "
                 f"{'ok' if ok else 'EXCEEDS capacity'}",
             ))
     return checks
@@ -342,7 +358,8 @@ def latency_satisfied(
         ok = actual <= target
         checks.append((
             ok,
-            f"flow {flow_id} latency: {actual}ms (budget {target}ms) {'ok' if ok else 'EXCEEDS budget'}",
+            f"flow {flow_id} latency: {fmt_value(actual)}ms (budget {fmt_value(target)}ms) "
+            f"{'ok' if ok else 'EXCEEDS budget'}",
         ))
     return checks
 
@@ -393,10 +410,18 @@ def explain_moved_services(
     Solver-agnostic: candidate can come from csp_solver.py's brute-force
     search or from decision_engine_cp_sat.py's solved assignment -- both
     produce a final, full service->node mapping, which is all this needs."""
+    # Raw facts only, tagged with a "MOVE:" prefix so a downstream consumer
+    # (explanation.py) can pick these lines out of resolution_trace by a
+    # fixed marker rather than by matching English substrings -- and so
+    # the LLM fed this data composes its own explanation of a move instead
+    # of being handed an already-written sentence to repeat. Interpretation
+    # (what "staying was feasible" should be said to mean) belongs in
+    # explanation.py's RULES, not here.
     notes: list[str] = []
     for service_id in candidate:
         current_node = services[service_id].current_node
-        if candidate[service_id] == current_node:
+        new_node = candidate[service_id]
+        if new_node == current_node:
             continue  # didn't move, nothing to explain
 
         counterfactual = dict(candidate)
@@ -405,13 +430,9 @@ def explain_moved_services(
             counterfactual, services, nodes, links, requirements, flows
         )
         if ok:
-            notes.append(
-                f"{service_id} did not strictly need to move off {current_node} "
-                f"(staying would still satisfy every constraint) -- it moved only "
-                f"because the search found a cheaper overall configuration"
-            )
+            notes.append(f"MOVE: {service_id} {current_node}->{new_node}; staying was feasible")
         else:
             failing = "; ".join(reason for check_ok, reason in checks if not check_ok)
-            notes.append(f"{service_id} could not stay on {current_node}: {failing}")
+            notes.append(f"MOVE: {service_id} {current_node}->{new_node}; staying was infeasible: {failing}")
 
     return notes
