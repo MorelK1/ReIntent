@@ -1,7 +1,7 @@
 approach,model,strategy,under_trigger_rate,over_trigger_rate
-pipeline,gemini-2.5-flash-lite,zero_shot,0.0449,0.0053
-pipeline,gemini-2.5-flash-lite,one_shot,0.0327,0.0053
-pipeline,gemini-2.5-flash-lite,few_shot,0.0367,0.0
+pipeline,gemini-2.5-flash-lite,zero_shot,0.049,0.0053
+pipeline,gemini-2.5-flash-lite,one_shot,0.0367,0.0053
+pipeline,gemini-2.5-flash-lite,few_shot,0.0408,0.0
 pipeline,gpt-oss-120b,zero_shot,0.0327,0.0
 pipeline,gpt-oss-120b,one_shot,0.0408,0.0
 pipeline,gpt-oss-120b,few_shot,0.0245,0.0
@@ -14,9 +14,9 @@ pipeline,llama-3.3-70b,few_shot,0.0204,0.0053
 pipeline,mistral-small-3.2-24b,zero_shot,0.0327,0.0053
 pipeline,mistral-small-3.2-24b,one_shot,0.0245,0.0053
 pipeline,mistral-small-3.2-24b,few_shot,0.0163,0.0053
-ablation,gemini-2.5-flash-lite,zero_shot,0.0449,0.0053
-ablation,gemini-2.5-flash-lite,one_shot,0.0327,0.0053
-ablation,gemini-2.5-flash-lite,few_shot,0.0367,0.0
+ablation,gemini-2.5-flash-lite,zero_shot,0.049,0.0053
+ablation,gemini-2.5-flash-lite,one_shot,0.0367,0.0053
+ablation,gemini-2.5-flash-lite,few_shot,0.0408,0.0
 ablation,gpt-oss-120b,zero_shot,0.0531,0.0
 ablation,gpt-oss-120b,one_shot,0.0408,0.0
 ablation,gpt-oss-120b,few_shot,0.0245,0.0
@@ -27,7 +27,7 @@ ablation,llama-3.3-70b,zero_shot,0.0245,0.0053
 ablation,llama-3.3-70b,one_shot,0.0245,0.0053
 ablation,llama-3.3-70b,few_shot,0.0204,0.0053
 ablation,mistral-small-3.2-24b,zero_shot,0.0327,0.0053
-ablation,mistral-small-3.2-24b,one_shot,0.0367,0.0053
+ablation,mistral-small-3.2-24b,one_shot,0.0408,0.0053
 ablation,mistral-small-3.2-24b,few_shot,0.0163,0.0053
 direct,gemini-2.5-flash-lite,zero_shot,0.3959,0.4789
 direct,gemini-2.5-flash-lite,one_shot,0.4571,0.3579

@@ -95,7 +95,7 @@ pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.5378744120243937,
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.6643481050268747,3125,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,2,True,1.8535694050369784,3522,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.9724832139909267,3686,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
-pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,False,1.7214378290227614,3493,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
+pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.7214378290227614,3493,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.9479496259591542,3709,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.432008487987332,3169,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.497897734050639,3373,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -202,7 +202,7 @@ pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.755526726017706,3
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.7405553289572708,3406,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,2.091491680010222,3972,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.9229948199936189,3410,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,3,True,2.316815361031331,3994,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,2.316815361031331,3994,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.7963004459743388,3318,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.9696524949977174,3571,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,3,True,2.348698513000272,3757,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -323,7 +323,7 @@ pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.1774966059601866,
 pipeline,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,2.0718166540027596,3665,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.299473502964247,3141,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,2.354442221985664,3793,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
-pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.645681472029537,3441,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,0
+pipeline,gemini-2.5-flash-lite,zero_shot,OFFLOAD,False,0,False,1.645681472029537,3441,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,-1
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.3925020470051095,3161,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.4062861789716408,3126,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,2.3526897890260443,3969,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
@@ -595,7 +595,7 @@ pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.6068769580451772,3
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.6245499040232971,3277,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,1.9514029219863005,3674,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.134033060981892,3858,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
-pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,False,1.878497147001326,3622,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
+pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.878497147001326,3622,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.210987839032896,3854,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.2965828030137345,3313,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.5945183340227231,3506,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -702,7 +702,7 @@ pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.029397225996945,37
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.570515577972401,3558,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,2.714355128002353,4134,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,False,0,False,1.4622882700059563,3183,0.0,0.0,1.0,1.0,0.0,0.0,False,True,,1,-1
-pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,2.051239093998447,4114,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.051239093998447,4114,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.5431017450173385,3460,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.1842044899822213,3723,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,2.119800574029796,3881,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -823,7 +823,7 @@ pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.525854416016955,34
 pipeline,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,1.82110936002573,3748,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.4750686130137183,3293,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,2.4262473059934564,3902,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
-pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.5453696069889702,3610,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,0
+pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,False,0,False,1.5453696069889702,3610,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,-1
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.1976303879637271,3304,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.3576949010021053,3278,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,2.415398543002084,4127,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
@@ -863,7 +863,7 @@ pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.8985921129933558,3
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,1.5440097430255264,3661,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.4865739329834469,3316,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.781790477980394,3698,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,2.3358282170374878,4006,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.3358282170374878,4006,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,1.9723238830338232,3872,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,1.8847526229801588,3802,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.820778730965685,3490,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -1095,7 +1095,7 @@ pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.6908688460243866,4
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.5214470290229656,4003,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,1.6809636899852194,4339,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.8015044850180857,4587,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
-pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,False,1.9847598270280287,4352,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
+pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.9847598270280287,4352,1.0,0.0,1.0,1.0,1.0,1.0,False,False,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.110787573037669,4560,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.4064194029779173,4043,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.4102173610008322,4236,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -1202,7 +1202,7 @@ pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.1664024189813063,4
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.5918037940282375,4288,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.0776229010079987,4773,3.0,0.0,1.0,3.0,1.0,1.0,False,False,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.5814456709777005,4291,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,2.391949006007053,4760,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,2
+pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.391949006007053,4760,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.7095196809968911,4190,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.8749895649962127,4390,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,2.047045399027411,4669,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -1323,7 +1323,7 @@ pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.5463253680500202,4
 pipeline,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,1.736956230015494,4476,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.6296746459556744,4021,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.9744564639986493,4630,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
-pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.7197866389760748,4340,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,0
+pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,False,0,False,1.7197866389760748,4340,1.0,0.0,1.0,2.0,0.0,0.0,False,True,,1,-1
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.6319855700130574,4032,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.3890540219726972,4006,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.5569099339772947,4779,3.0,0.0,1.0,3.0,0.0,1.0,False,False,,0,0
@@ -1363,7 +1363,7 @@ pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.6653981590061449,4
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,1.8387032210011967,4399,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.502234595012851,4037,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.7942447689711116,4428,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,2.3436268100049347,4637,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.3436268100049347,4637,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,1.8323257730226032,4602,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.3178175739594735,4532,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.4919899909873493,4220,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -1595,7 +1595,7 @@ pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,3.8298623529844917,4605,1.0,
 pipeline,gpt-oss-120b,zero_shot,STAY,True,0,True,2.3279340609442443,3313,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,4.9300826790276915,4037,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.033330156002194,5436,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,0
-pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,4.393629768979736,4833,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.393629768979736,4833,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,5.570546327042393,4595,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,zero_shot,STAY,True,0,True,1.982188964029774,3960,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,2.861324872006662,4286,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -1702,7 +1702,7 @@ pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,3.6145839169621468,4798,2.0,
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,3.2871319580008276,4346,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,6.343612810014747,5709,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.163182911986951,4502,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,4.590936649998184,5609,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,2
+pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.590936649998184,5609,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,0
 pipeline,gpt-oss-120b,zero_shot,STAY,True,0,True,2.789679127978161,4580,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.462590245995671,4803,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,5.1178239900036715,5216,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -1863,7 +1863,7 @@ pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.855484827014152,4624,2.0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,3.9763582320301794,4415,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,zero_shot,STAY,True,0,True,2.447392000001855,4061,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,3.311472852015868,4828,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,4.684802772011608,5039,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.684802772011608,5039,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,4.065951424010564,5187,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,4.488092488027178,3937,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,zero_shot,STAY,True,0,True,5.565692499978468,3997,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -2095,7 +2095,7 @@ pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.566383809025865,4082,1.0,1.
 pipeline,gpt-oss-120b,one_shot,STAY,True,0,True,1.695321712992154,4046,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,3.9873514670180157,4158,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.276256420009304,5851,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,5.419407685985789,4855,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,5.419407685985789,4855,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,5.438348625029903,4816,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,one_shot,STAY,True,0,True,2.2636814590077847,4136,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,2.87875166896265,4445,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -2202,7 +2202,7 @@ pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,3.1950990469777025,5064,2.0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,3.688943815010134,4879,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,one_shot,INFEASIBLE,True,0,False,7.442403263004962,5675,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,3.154251757019665,4604,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,6.10252107703127,5743,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,2
+pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.10252107703127,5743,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,0
 pipeline,gpt-oss-120b,one_shot,STAY,True,0,True,3.5179035569890402,4777,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,3.684605976974126,5176,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,4.623157238995191,5328,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -2363,7 +2363,7 @@ pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.183477408019826,5027,2.0,0.
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,6.575272682006471,4570,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,one_shot,STAY,True,0,True,2.0794283840223216,4179,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.703865242016036,4773,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,4.7366905770031735,5144,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.7366905770031735,5144,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,11.904391873977147,5080,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,one_shot,INFEASIBLE,True,0,False,8.40731996303657,4684,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,one_shot,STAY,True,0,True,2.9138669760432094,4641,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -2595,7 +2595,7 @@ pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.348189306037966,5578,2.0,0.
 pipeline,gpt-oss-120b,few_shot,STAY,True,0,True,2.50252267497126,4741,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,3.7235328769893385,5272,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,5.348695495980792,5969,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,0
-pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,6.68183452199446,5173,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,6.68183452199446,5173,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,7.399251773022115,5100,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,few_shot,STAY,True,0,True,2.801360053010285,4802,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.969427043979522,4497,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -2702,7 +2702,7 @@ pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.1471669689635746,5383,2.0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.059945909015369,5312,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,few_shot,INFEASIBLE,True,0,False,4.188447101972997,6242,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.3245821720338427,5253,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,4.798554230015725,6135,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,2
+pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.798554230015725,6135,2.0,0.0,1.0,2.0,0.0,1.0,False,False,,1,0
 pipeline,gpt-oss-120b,few_shot,STAY,True,0,True,3.2936078240163624,5202,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,5.745030795049388,5689,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,4.953573265986051,5942,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -2863,7 +2863,7 @@ pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,9.677933568018489,5098,2.0,0.
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,5.448624271026347,5074,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,few_shot,STAY,True,0,True,2.53749614598928,4784,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.182075497985352,5686,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,5.055443129967898,5953,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,5.055443129967898,5953,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,4.548185165971518,5700,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-120b,few_shot,INFEASIBLE,True,0,False,4.2121177619555965,5594,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-120b,few_shot,STAY,True,0,True,4.208638301002793,4460,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -3095,7 +3095,7 @@ pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.9230577209964395,5360,2.0,0
 pipeline,gpt-oss-20b,zero_shot,STAY,True,0,True,1.5932255809893832,3931,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,1.8089682530262507,4411,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,5.946789605019148,6340,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,3.1336439779843204,5271,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,3.1336439779843204,5271,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,4.362575930019375,6083,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,zero_shot,STAY,True,0,True,2.1877323070075363,4033,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.994484241993632,4390,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -3202,7 +3202,7 @@ pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,3.0721052270382643,5286,2.0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.575691759993788,4605,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,zero_shot,INFEASIBLE,True,0,False,3.417410863970872,5751,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.269396340008825,4504,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,4.920533404976595,6742,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,2
+pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,4.920533404976595,6742,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
 pipeline,gpt-oss-20b,zero_shot,STAY,True,0,True,2.3670777379884385,4723,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.8778561600483954,5444,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,3.335262253996916,5874,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -3363,7 +3363,7 @@ pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,3.003997994994279,5198,2.0,0.
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,3.368562622985337,4721,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,zero_shot,STAY,True,0,True,2.752736151975114,4767,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.484716879960615,4994,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,3.6350793589954264,6213,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,3.6350793589954264,6213,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,3.1445881789550185,5328,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,zero_shot,INFEASIBLE,True,0,False,2.00323092401959,4628,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,zero_shot,STAY,True,0,True,3.128379841975402,5068,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -3595,7 +3595,7 @@ pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,3.162784290034324,5168,2.0,0.0
 pipeline,gpt-oss-20b,one_shot,STAY,True,0,True,1.5983712590532377,4027,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,1.5916737600346096,4453,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,4.495397114020307,4249,1.0,0.0,2.0,1.0,0.0,2.0,False,False,,1,0
-pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,3.647634308959823,5571,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,3.647634308959823,5571,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,4.349505380028859,5735,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,one_shot,STAY,True,0,True,1.9678086150088347,4183,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,2.5142856220481917,4358,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -3702,7 +3702,7 @@ pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,3.567900501016993,5892,2.0,0.0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,2.2237538450281136,4886,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,one_shot,INFEASIBLE,True,0,False,4.542318502964918,5962,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,2.7845548150362447,4623,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,3,True,7.084669483010657,8517,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,2
+pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,7.084669483010657,8517,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
 pipeline,gpt-oss-20b,one_shot,STAY,True,0,True,4.3268158490536734,5443,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,3.739884502021596,5312,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,False,0,False,2.4253778730053455,4682,1.0,0.0,1.0,1.0,0.0,1.0,False,False,,3,-3
@@ -3863,7 +3863,7 @@ pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,2.9330818459857255,5153,2.0,0.
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,2.043691275001038,4794,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,one_shot,STAY,True,0,True,2.414544513041619,4426,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,2.1884571699774824,5106,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,3,True,4.628857684030663,6129,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,4.628857684030663,6129,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,6.031092105025891,5099,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,one_shot,INFEASIBLE,True,0,False,1.950561034027487,5058,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,one_shot,STAY,True,0,True,2.723342432989739,3594,0.0,0.0,2.0,0.0,0.0,2.0,False,False,,0,0
@@ -4095,7 +4095,7 @@ pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.6051901879836805,5885,2.0,0.
 pipeline,gpt-oss-20b,few_shot,STAY,True,0,True,1.6608710250002332,4725,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,4.299560708983336,5061,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,False,0,False,4.618803398043383,7000,3.0,2.0,0.0,3.0,2.0,0.0,False,False,,1,-1
-pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,3.719598457973916,6603,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,3.719598457973916,6603,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.5542291090241633,6200,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,few_shot,STAY,True,0,True,2.975268312031403,4088,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.1557809649966657,5020,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -4202,7 +4202,7 @@ pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.4352220689761452,5693,2.0,0.
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.187026986037381,5157,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,few_shot,INFEASIBLE,True,0,False,6.078966936969664,8611,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,3.825002071040217,5532,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,3,True,2.783647709991783,6358,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,2
+pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,2.783647709991783,6358,2.0,0.0,1.0,2.0,1.0,1.0,False,False,,1,0
 pipeline,gpt-oss-20b,few_shot,STAY,True,0,True,2.3484504549996927,5679,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,3.4661583590204827,5935,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,False,0,False,3.5277646689792164,5399,1.0,0.0,1.0,1.0,0.0,1.0,False,False,,3,-3
@@ -4363,7 +4363,7 @@ pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,3.706608555978164,6177,2.0,0.0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,2.008739088953007,5276,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,few_shot,STAY,True,0,True,1.3769025499932468,4933,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,3.927541184006259,6117,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,3,True,5.487484239041805,6400,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,5.487484239041805,6400,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,3.9427264090045355,6297,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,gpt-oss-20b,few_shot,INFEASIBLE,True,0,False,4.5082772970199585,5815,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,gpt-oss-20b,few_shot,STAY,True,0,True,3.4092710069962777,6030,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -4595,7 +4595,7 @@ pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,7.2001168060232885,3424,1.0
 pipeline,llama-3.3-70b,zero_shot,STAY,True,0,True,3.3543147180462256,3053,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,6.636715961969458,3404,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,9.879118138051126,3783,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,10.261401988042053,3532,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,10.261401988042053,3532,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,19.84010422596475,3733,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,STAY,True,0,True,4.618669042014517,3131,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,6.7029886890086345,3309,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -4702,7 +4702,7 @@ pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,5.095994956034701,3446,2.0,
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,7.610098113014828,3346,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,INFEASIBLE,True,0,False,8.254928044974804,3875,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,5.538349214999471,3312,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,9.955497040005866,3878,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,9.955497040005866,3878,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,STAY,True,0,True,4.920274048985448,3215,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,8.521979379991535,3555,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,6.506187929015141,3669,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -4863,7 +4863,7 @@ pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,4.061090771981981,3473,2.0,
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,4.152627683011815,3385,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,zero_shot,STAY,True,0,True,3.0728999199927785,3080,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,7.0409605099703185,3499,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,6.096400321985129,3672,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,6.096400321985129,3672,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,4.626779543992598,3550,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,zero_shot,INFEASIBLE,True,0,False,5.693201805988792,3533,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,zero_shot,STAY,True,0,True,8.416567164997105,3249,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -5095,7 +5095,7 @@ pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.04195714299567,3582,1.0,1.
 pipeline,llama-3.3-70b,one_shot,STAY,True,0,True,2.868980574014131,3204,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,9.821326175995637,3522,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,False,0,False,9.983341449988075,4105,2.0,2.0,1.0,2.0,2.0,1.0,False,False,,1,-1
-pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,5.755247199966107,3593,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.755247199966107,3593,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,22.423800226999447,3870,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,STAY,True,0,True,2.6455692650051787,3222,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,4.6443415230023675,3440,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -5202,7 +5202,7 @@ pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,4.095199123956263,3608,2.0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.034044589963742,3477,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,INFEASIBLE,True,0,False,9.64552730100695,4038,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.540300963970367,3432,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,6.8077672380022705,3917,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,6.8077672380022705,3917,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,STAY,True,0,True,7.30491995398188,3357,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.900807022000663,3639,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,5.626153762976173,3757,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -5363,7 +5363,7 @@ pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,7.272818194993306,3609,2.0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,4.732855818001553,3504,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,one_shot,STAY,True,0,True,4.06733307603281,3231,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,8.319821744982619,3635,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,13.826161961012986,3827,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,13.826161961012986,3827,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,11.55801497201901,3756,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,one_shot,INFEASIBLE,True,0,False,8.438845424039755,3658,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,one_shot,STAY,True,0,True,13.144842996029183,3409,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -5595,7 +5595,7 @@ pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.887525733967777,4191,1.0,1
 pipeline,llama-3.3-70b,few_shot,STAY,True,0,True,4.708434750966262,3831,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,9.220614890975412,4192,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,False,0,False,13.10836068703793,4528,2.0,1.0,1.0,2.0,1.0,1.0,False,False,,1,-1
-pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,13.059106018976308,4304,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,13.059106018976308,4304,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,11.087367811996955,4468,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,STAY,True,0,True,3.644821805995889,3857,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.74506076995749,4085,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -5702,7 +5702,7 @@ pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,9.223666541976854,4250,2.0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.043701532005798,4113,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,INFEASIBLE,True,0,False,8.810519507038407,4670,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.392733476997819,4079,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,7.279304274008609,4612,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,7.279304274008609,4612,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,STAY,True,0,True,3.737029545009136,4000,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,7.094980691967066,4219,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,6.820300012012012,4436,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -5863,7 +5863,7 @@ pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,8.072464676981326,4312,2.0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,5.228539817035198,4146,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,few_shot,STAY,True,0,True,4.008795827976428,3874,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,6.368449073983356,4208,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,6.936420154990628,4417,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,6.936420154990628,4417,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,8.330228194012307,4302,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,llama-3.3-70b,few_shot,INFEASIBLE,True,0,False,6.054216132964939,4277,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,llama-3.3-70b,few_shot,STAY,True,0,True,5.160113223013468,4043,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -6095,7 +6095,7 @@ pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.1848220269894227,
 pipeline,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,2.2862505939556286,3035,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.145726761955302,3373,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.385696812008973,3751,2.0,0.0,1.0,2.0,2.0,1.0,False,False,,1,0
-pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.186849487014115,3512,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.186849487014115,3512,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.3291176320053637,3702,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,2.02102308801841,3075,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.8833082840428688,3281,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -6202,7 +6202,7 @@ pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.3939924180158414,
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.018563367018942,3247,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,INFEASIBLE,True,0,False,5.954717165033799,3938,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.4567551849759184,3340,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,3.147158884035889,3863,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.147158884035889,3863,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,3.271268481039442,3245,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.9550301660201512,3459,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,3.0555056310258806,3629,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -6363,7 +6363,7 @@ pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.244594465009868,3
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,2.8797690729843453,3456,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,4.081910565961152,3073,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.1047082309960388,3397,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,4.8325563370017335,3672,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,4.8325563370017335,3672,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.9952122200047597,3671,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,zero_shot,INFEASIBLE,True,0,False,3.79681242298102,3499,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,2.366458642994985,3223,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -6595,7 +6595,7 @@ pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.0177086500334553,3
 pipeline,mistral-small-3.2-24b,one_shot,STAY,True,0,True,3.9704540059901774,3166,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,2.568323334970046,3574,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.2898156020091847,3788,2.0,0.0,1.0,2.0,2.0,1.0,False,False,,1,0
-pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,2.8707621059729718,3638,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.8707621059729718,3638,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.8238200420164503,3811,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.1359711659606546,3222,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,4.417258784989826,3467,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -6702,7 +6702,7 @@ pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.7695850959862582,3
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.2103128469898365,3462,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,INFEASIBLE,True,0,False,6.594781880034134,4053,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,False,0,False,2.028525230009109,3094,0.0,0.0,1.0,0.0,1.0,1.0,False,False,,1,-1
-pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,5.683294554997701,4031,2.0,1.0,1.0,2.0,1.0,1.0,False,False,,1,2
+pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,5.683294554997701,4031,2.0,1.0,1.0,2.0,1.0,1.0,False,False,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.755137253960129,3357,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.426465379947331,3583,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,3.406234665948432,3819,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -6863,7 +6863,7 @@ pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.344658472982701,37
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,2.6929383130045608,3503,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.619711691979319,3209,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.2262038119952194,3548,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,4.60444888001075,3857,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,4.60444888001075,3857,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,6.179900456045289,3691,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,one_shot,INFEASIBLE,True,0,False,3.7747417730279267,3630,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,one_shot,STAY,True,0,True,3.3975504420232028,3358,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -7095,7 +7095,7 @@ pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.5390060280333273,4
 pipeline,mistral-small-3.2-24b,few_shot,STAY,True,0,True,1.4983805320225656,3829,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,2.9074921649880707,4238,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,4.691677113005426,4545,2.0,0.0,1.0,2.0,2.0,1.0,False,False,,1,0
-pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,2.3658035089611076,4287,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,1
+pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.3658035089611076,4287,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.501099504996091,4497,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,STAY,True,0,True,1.9834095049882308,3867,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.835353751957882,4133,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
@@ -7202,7 +7202,7 @@ pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.6638504360453226,4
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.0515945740044117,4151,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,INFEASIBLE,True,0,False,3.3081702990457416,4682,4.0,0.0,0.0,4.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.676129795028828,4190,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,1,0
-pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,3,True,3.919053748017177,4614,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,2
+pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.919053748017177,4614,3.0,0.0,0.0,3.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,STAY,True,0,True,2.011358460003976,4031,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.667830405989662,4235,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,3,True,3.767115762049798,4478,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,3,0
@@ -7363,7 +7363,7 @@ pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,4.093024229980074,42
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,3.4554087370052002,4174,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,few_shot,STAY,True,0,True,2.1962276119738817,3870,1.0,0.0,0.0,1.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.4347061939770356,4208,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
-pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,3,True,3.957430218986701,4478,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,2
+pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.957430218986701,4478,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,1,0
 pipeline,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,4.417012113030069,4353,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,2,0
 pipeline,mistral-small-3.2-24b,few_shot,INFEASIBLE,True,0,False,2.9621462040231563,4304,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
 pipeline,mistral-small-3.2-24b,few_shot,STAY,True,0,True,3.18955571600236,4030,2.0,0.0,0.0,2.0,0.0,0.0,True,True,,0,0
@@ -7595,7 +7595,7 @@ ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.7454871709924191,
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.2879059949773364,3107,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,2,True,1.9017372250091285,3429,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,2.3071205869782716,3656,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,False,1.6462890099501237,3395,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.6462890099501237,3395,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,2.117504264053423,3662,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.257574693998322,3128,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.6780285570421256,3326,,,,,,,,,,1,0
@@ -7702,7 +7702,7 @@ ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.7492958169896156,
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.9174922560341656,3332,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,3.0704179289750755,3854,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.6406718679936603,3313,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,3,True,2.1594880300108343,3894,,,,,,,,,,1,2
+ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,2.1594880300108343,3894,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.5841383569641039,3291,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,2.2255084330099635,3503,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,3,True,2.287831920024473,3785,,,,,,,,,,3,0
@@ -7823,7 +7823,7 @@ ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.4237190519925207,
 ablation,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,2.1686012520221993,3533,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.8446567330393009,3110,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,3.1709828940220177,3753,,,,,,,,,,0,0
-ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,True,1,True,1.6488453960046172,3388,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,zero_shot,OFFLOAD,False,0,False,1.6488453960046172,3388,,,,,,,,,,1,-1
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.5580185660510324,3128,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,STAY,True,0,True,1.4493585710297339,3106,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,zero_shot,INFEASIBLE,True,0,False,2.446317979018204,3849,,,,,,,,,,0,0
@@ -8095,7 +8095,7 @@ ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.5319396369741298,3
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.4063556689652614,3259,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,2.013541085005272,3581,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.5795639400021173,3728,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,False,1.742385218036361,3540,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.742385218036361,3540,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.0049635199829936,3815,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.6533752420218661,3295,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.5440270929830149,3483,,,,,,,,,,1,0
@@ -8202,7 +8202,7 @@ ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.8283749269903637,3
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.887228564999532,3484,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,2.3324681679951027,4007,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,False,0,False,1.5210929249878973,3163,,,,,,,,,,1,-1
-ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,2.4703797579859383,4053,,,,,,,,,,1,2
+ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.4703797579859383,4053,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.695391868997831,3439,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.0617785450303927,3655,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,1.8368360140011646,3881,,,,,,,,,,3,0
@@ -8323,7 +8323,7 @@ ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.843836409971118,34
 ablation,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,2.025875441962853,3692,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,2.130838170007337,3262,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.9192399650346488,3882,,,,,,,,,,0,0
-ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.6088976209866814,3547,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,False,0,False,1.6088976209866814,3547,,,,,,,,,,1,-1
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.595222059986554,3266,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.3756939529557712,3258,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,2.2118449660483748,4013,,,,,,,,,,0,0
@@ -8363,7 +8363,7 @@ ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.9313303080270998,3
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,1.5826131270150654,3587,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.4035580530180596,3299,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,1.6056934440275654,3622,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,3,True,2.301205947995186,3930,,,,,,,,,,1,2
+ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,1,True,2.301205947995186,3930,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,one_shot,OFFLOAD,True,2,True,2.078857217973564,3865,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,one_shot,INFEASIBLE,True,0,False,1.9164278270327486,3653,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,one_shot,STAY,True,0,True,1.6652981040533632,3473,,,,,,,,,,0,0
@@ -8595,7 +8595,7 @@ ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.6963341779774055,4
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.6865044840378687,3985,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,2.1109229280264117,4353,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.8910476900055073,4457,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,False,1.7120221390505321,4275,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.7120221390505321,4275,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.581290663976688,4503,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.2297349440050311,4025,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.408147384005133,4213,,,,,,,,,,1,0
@@ -8702,7 +8702,7 @@ ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.490098497015424,44
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.4580914590042084,4214,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.1477263559936546,4663,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.751830038963817,4194,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,2.37733670900343,4708,,,,,,,,,,1,2
+ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.37733670900343,4708,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.5250951509806328,4169,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.888099586009048,4351,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,1.828433636983391,4654,,,,,,,,,,3,0
@@ -8823,7 +8823,7 @@ ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.482470421004109,41
 ablation,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.3157783549977466,4420,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.3847457600058988,3990,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,2.5436739389551803,4610,,,,,,,,,,0,0
-ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.3944591689505614,4277,,,,,,,,,,1,0
+ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,False,0,False,2.3944591689505614,4277,,,,,,,,,,1,-1
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.5372331340331584,3994,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.4659735439927317,3986,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,2.3500000340281986,4666,,,,,,,,,,0,0
@@ -8863,7 +8863,7 @@ ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.7883836239925586,4
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,1.4123388939769939,4257,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.3851284519769251,4019,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,2.003758631995879,4352,,,,,,,,,,1,0
-ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,3,True,1.791259068006184,4614,,,,,,,,,,1,2
+ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,1,True,1.791259068006184,4614,,,,,,,,,,1,0
 ablation,gemini-2.5-flash-lite,few_shot,OFFLOAD,True,2,True,2.121564026980195,4595,,,,,,,,,,2,0
 ablation,gemini-2.5-flash-lite,few_shot,INFEASIBLE,True,0,False,1.7330170969944447,4383,,,,,,,,,,0,0
 ablation,gemini-2.5-flash-lite,few_shot,STAY,True,0,True,1.6642936259740964,4203,,,,,,,,,,0,0
@@ -9095,7 +9095,7 @@ ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,11.376828117005061,4730,,,,,
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,15.850239328981843,4103,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,11.471844342944678,4201,,,,,,,,,,2,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,10.318781416979618,5274,,,,,,,,,,1,0
-ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,6.775539531954564,3693,,,,,,,,,,1,1
+ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.775539531954564,3693,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,7.0778496009879746,4251,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,3.472169632965233,3611,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,8.663811409962364,3683,,,,,,,,,,1,0
@@ -9202,7 +9202,7 @@ ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.301999407995027,4078,,,,,,
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,4.170260595041327,3955,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,6.922809568990488,4917,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.182307041017339,3998,,,,,,,,,,1,0
-ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,6.845915386045817,4908,,,,,,,,,,1,2
+ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.845915386045817,4908,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,3.817686739959754,3608,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.05224376602564,4435,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,5.0281491100322455,4935,,,,,,,,,,3,0
@@ -9340,7 +9340,7 @@ ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,4.116275146021508,3908,,,,,,
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,6.31877286900999,3698,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,12.730493583949283,5514,,,,,,,,,,2,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,21.01118796603987,5057,,,,,,,,,,1,0
-ablation,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,9.1389975680504,5792,,,,,,,,,,0,0
+ablation,gpt-oss-120b,zero_shot,INFEASIBLE,False,3,False,9.1389975680504,5792,,,,,,,,,,0,3
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,6.067876051994972,4559,,,,,,,,,,3,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,10.312699061003514,5505,,,,,,,,,,3,0
 ablation,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,5.071111216035206,4237,,,,,,,,,,0,0
@@ -9363,7 +9363,7 @@ ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,5.318737928988412,4219,,,,,,
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,6.000019831000827,3873,,,,,,,,,,2,0
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,4.04696647397941,3439,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,5.912966942007188,4487,,,,,,,,,,1,0
-ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,3,True,6.13116838701535,4507,,,,,,,,,,1,2
+ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,1,True,6.13116838701535,4507,,,,,,,,,,1,0
 ablation,gpt-oss-120b,zero_shot,OFFLOAD,True,2,True,4.133646684000269,4191,,,,,,,,,,2,0
 ablation,gpt-oss-120b,zero_shot,INFEASIBLE,True,0,False,5.489961176004726,4756,,,,,,,,,,0,0
 ablation,gpt-oss-120b,zero_shot,STAY,True,0,True,6.110083720996045,4741,,,,,,,,,,0,0
@@ -9595,7 +9595,7 @@ ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.718958051991649,3937,,,,,,,
 ablation,gpt-oss-120b,one_shot,STAY,True,0,True,2.9813112120027654,3486,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,5.062556028016843,4225,,,,,,,,,,2,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.220094843010884,5460,,,,,,,,,,1,0
-ablation,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,4.391260774049442,4223,,,,,,,,,,1,1
+ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.391260774049442,4223,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.820291484997142,5270,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,STAY,True,0,True,3.2598708520526998,4176,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,2.9360618029604666,3637,,,,,,,,,,1,0
@@ -9702,7 +9702,7 @@ ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,7.232650665973779,4476,,,,,,,
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,4.188971280993428,4676,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,INFEASIBLE,True,0,False,8.002131172979716,5020,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,3.2678925350192003,4545,,,,,,,,,,1,0
-ablation,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,5.1506755909649655,5277,,,,,,,,,,1,2
+ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,5.1506755909649655,5277,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,STAY,True,0,True,4.7108695399947464,4004,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,5.547325040970463,4722,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,5.668351877015084,4518,,,,,,,,,,3,0
@@ -9863,7 +9863,7 @@ ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.975632935995236,4253,,,,,,,
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,3.4003956579836085,3997,,,,,,,,,,2,0
 ablation,gpt-oss-120b,one_shot,STAY,True,0,True,4.791584496968426,3559,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.202745473012328,4529,,,,,,,,,,1,0
-ablation,gpt-oss-120b,one_shot,OFFLOAD,True,3,True,6.2313050699885935,4641,,,,,,,,,,1,2
+ablation,gpt-oss-120b,one_shot,OFFLOAD,True,1,True,6.2313050699885935,4641,,,,,,,,,,1,0
 ablation,gpt-oss-120b,one_shot,OFFLOAD,True,2,True,5.882691239996348,5258,,,,,,,,,,2,0
 ablation,gpt-oss-120b,one_shot,INFEASIBLE,True,0,False,7.45170648698695,5282,,,,,,,,,,0,0
 ablation,gpt-oss-120b,one_shot,STAY,True,0,True,10.943427500023972,4600,,,,,,,,,,0,0
@@ -10095,7 +10095,7 @@ ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,6.875382011989132,5027,,,,,,,
 ablation,gpt-oss-120b,few_shot,STAY,True,0,True,5.267166391015053,4511,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,9.612905357033014,5173,,,,,,,,,,2,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,17.50524273799965,4903,,,,,,,,,,1,0
-ablation,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,26.84062226599781,5047,,,,,,,,,,1,1
+ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,26.84062226599781,5047,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,5.880027026985772,5430,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,STAY,True,0,True,3.666272377013229,4377,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.9024716580170207,4478,,,,,,,,,,1,0
@@ -10202,7 +10202,7 @@ ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.516902060015127,5288,,,,,,,
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.811154083989095,4876,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,INFEASIBLE,True,0,False,6.117987374018412,6182,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,3.890608784975484,4729,,,,,,,,,,1,0
-ablation,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,6.117472271027509,6318,,,,,,,,,,1,2
+ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,6.117472271027509,6318,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,STAY,True,0,True,3.450211966992356,5216,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,5.403727233991958,5071,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,8.246368061983958,5970,,,,,,,,,,3,0
@@ -10363,7 +10363,7 @@ ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,6.170862628030591,5204,,,,,,,
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,3.952281553996727,4729,,,,,,,,,,2,0
 ablation,gpt-oss-120b,few_shot,STAY,True,0,True,3.6911612179828808,4732,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,4.886864122003317,5099,,,,,,,,,,1,0
-ablation,gpt-oss-120b,few_shot,OFFLOAD,True,3,True,6.222581065027043,5757,,,,,,,,,,1,2
+ablation,gpt-oss-120b,few_shot,OFFLOAD,True,1,True,6.222581065027043,5757,,,,,,,,,,1,0
 ablation,gpt-oss-120b,few_shot,OFFLOAD,True,2,True,6.2129852210055105,5363,,,,,,,,,,2,0
 ablation,gpt-oss-120b,few_shot,INFEASIBLE,True,0,False,5.612787421967369,5078,,,,,,,,,,0,0
 ablation,gpt-oss-120b,few_shot,STAY,True,0,True,5.273807926976588,4905,,,,,,,,,,0,0
@@ -10595,7 +10595,7 @@ ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,9.249392114987131,4225,,,,,,,
 ablation,gpt-oss-20b,zero_shot,STAY,True,0,True,6.366311007004697,3908,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,5.495977571990807,4494,,,,,,,,,,2,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,22.662568621046375,6049,,,,,,,,,,1,0
-ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,5.8635791770066135,5191,,,,,,,,,,1,1
+ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,5.8635791770066135,5191,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,8.457776823022868,6856,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,STAY,True,0,True,5.055056049022824,3970,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,4.107520814985037,4245,,,,,,,,,,1,0
@@ -10702,7 +10702,7 @@ ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,10.996111830987502,4547,,,,,,
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,2.004155682050623,4579,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,INFEASIBLE,True,0,False,23.193100272037555,6033,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,8.862247526994906,4002,,,,,,,,,,1,0
-ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,41.76295181497699,8526,,,,,,,,,,1,2
+ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,41.76295181497699,8526,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,STAY,True,0,True,13.951515291002579,4650,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,13.991240125033073,4756,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,11.283637179003563,5198,,,,,,,,,,3,0
@@ -10863,7 +10863,7 @@ ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,22.37881591496989,5512,,,,,,,
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,10.246736411994789,4354,,,,,,,,,,2,0
 ablation,gpt-oss-20b,zero_shot,STAY,True,0,True,6.314265142951626,4130,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,13.782156514993403,5012,,,,,,,,,,1,0
-ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,3,True,17.843787610006984,5487,,,,,,,,,,1,2
+ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,1,True,17.843787610006984,5487,,,,,,,,,,1,0
 ablation,gpt-oss-20b,zero_shot,OFFLOAD,True,2,True,11.36386926396517,5313,,,,,,,,,,2,0
 ablation,gpt-oss-20b,zero_shot,INFEASIBLE,True,0,False,18.645106638025027,5282,,,,,,,,,,0,0
 ablation,gpt-oss-20b,zero_shot,STAY,True,0,True,20.115429986966774,5067,,,,,,,,,,0,0
@@ -11095,7 +11095,7 @@ ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,5.659364869003184,4773,,,,,,,,
 ablation,gpt-oss-20b,one_shot,STAY,True,0,True,2.350903176004067,4362,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,5.145406847004779,4173,,,,,,,,,,2,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,10.747318538022228,6848,,,,,,,,,,1,0
-ablation,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,6.536475430009887,4391,,,,,,,,,,1,1
+ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,6.536475430009887,4391,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,7.126778251957148,5947,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,STAY,True,0,True,6.132758643012494,3964,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,4.414648473961279,3993,,,,,,,,,,1,0
@@ -11202,7 +11202,7 @@ ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,9.418383929005358,4643,,,,,,,,
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,6.5453059150022455,4703,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,INFEASIBLE,True,0,False,16.332323483016808,5780,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,6.835742051014677,4113,,,,,,,,,,1,0
-ablation,gpt-oss-20b,one_shot,OFFLOAD,True,3,True,51.896595857979264,10080,,,,,,,,,,1,2
+ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,51.896595857979264,10080,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,STAY,True,0,True,14.48445912997704,4962,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,10.464090170979034,5003,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,3,True,6.346063756966032,4679,,,,,,,,,,3,0
@@ -11363,7 +11363,7 @@ ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,13.31370518100448,5034,,,,,,,,
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,6.609846297011245,4041,,,,,,,,,,2,0
 ablation,gpt-oss-20b,one_shot,STAY,True,0,True,20.138781290967017,3937,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,17.11018357600551,4693,,,,,,,,,,1,0
-ablation,gpt-oss-20b,one_shot,OFFLOAD,True,3,True,51.00444636098109,9772,,,,,,,,,,1,2
+ablation,gpt-oss-20b,one_shot,OFFLOAD,True,1,True,51.00444636098109,9772,,,,,,,,,,1,0
 ablation,gpt-oss-20b,one_shot,OFFLOAD,True,2,True,32.064093318011146,7415,,,,,,,,,,2,0
 ablation,gpt-oss-20b,one_shot,INFEASIBLE,True,0,False,11.010341721994337,4586,,,,,,,,,,0,0
 ablation,gpt-oss-20b,one_shot,STAY,True,0,True,12.467580105992965,4285,,,,,,,,,,0,0
@@ -11595,7 +11595,7 @@ ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,24.79147744702641,6828,,,,,,,,
 ablation,gpt-oss-20b,few_shot,STAY,True,0,True,7.604202786984388,4523,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,7.488297916017473,4756,,,,,,,,,,2,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,9.325981022964697,8012,,,,,,,,,,1,0
-ablation,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,6.258919749001507,5698,,,,,,,,,,1,1
+ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,6.258919749001507,5698,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,4.129546181997284,5621,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,STAY,True,0,True,3.21796139201615,4348,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,5.48417149996385,4485,,,,,,,,,,1,0
@@ -11702,7 +11702,7 @@ ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,12.190732678980567,5753,,,,,,,
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,41.86308902001474,8948,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,INFEASIBLE,True,0,False,29.525092661031522,8246,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,6.02420811803313,5388,,,,,,,,,,1,0
-ablation,gpt-oss-20b,few_shot,OFFLOAD,True,3,True,10.468818777997512,6902,,,,,,,,,,1,2
+ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,10.468818777997512,6902,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,STAY,True,0,True,8.89325425599236,6006,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,13.143651910999324,5487,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,3,True,52.86914948304184,10373,,,,,,,,,,3,0
@@ -11863,7 +11863,7 @@ ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,15.922828367969487,5800,,,,,,,
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,7.588057225977536,4749,,,,,,,,,,2,0
 ablation,gpt-oss-20b,few_shot,STAY,True,0,True,8.24983929505106,4844,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,21.35438635299215,5680,,,,,,,,,,1,0
-ablation,gpt-oss-20b,few_shot,OFFLOAD,True,3,True,11.666333907982334,5943,,,,,,,,,,1,2
+ablation,gpt-oss-20b,few_shot,OFFLOAD,True,1,True,11.666333907982334,5943,,,,,,,,,,1,0
 ablation,gpt-oss-20b,few_shot,OFFLOAD,True,2,True,8.18182939599501,5472,,,,,,,,,,2,0
 ablation,gpt-oss-20b,few_shot,INFEASIBLE,True,0,False,14.544664934044704,5408,,,,,,,,,,0,0
 ablation,gpt-oss-20b,few_shot,STAY,True,0,True,19.461020235030446,5345,,,,,,,,,,0,0
@@ -12095,7 +12095,7 @@ ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,5.903857092023827,3474,,,,,
 ablation,llama-3.3-70b,zero_shot,STAY,True,0,True,3.2837494460400194,3019,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,4.801877108984627,3341,,,,,,,,,,2,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,7.032224010035861,3719,,,,,,,,,,1,0
-ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,17.455887595016975,3482,,,,,,,,,,1,1
+ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,17.455887595016975,3482,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,11.800432363990694,3634,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,STAY,True,0,True,6.83322427800158,3111,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,4.068108609993942,3260,,,,,,,,,,1,0
@@ -12202,7 +12202,7 @@ ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,4.73772163700778,3436,,,,,,
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,3.7943483389681205,3297,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,INFEASIBLE,True,0,False,9.018513510993216,3793,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,4.400889792013913,3268,,,,,,,,,,1,0
-ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,6.523676945012994,3755,,,,,,,,,,1,2
+ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,6.523676945012994,3755,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,STAY,True,0,True,11.209166978020221,3227,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,7.2215920119779184,3458,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,5.358909700997174,3621,,,,,,,,,,3,0
@@ -12363,7 +12363,7 @@ ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,8.494397897040471,3410,,,,,
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,10.765104747959413,3320,,,,,,,,,,2,0
 ablation,llama-3.3-70b,zero_shot,STAY,True,0,True,4.931521781953052,3042,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,9.046075283025857,3478,,,,,,,,,,1,0
-ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,3,True,15.42171474499628,3612,,,,,,,,,,1,2
+ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,1,True,15.42171474499628,3612,,,,,,,,,,1,0
 ablation,llama-3.3-70b,zero_shot,OFFLOAD,True,2,True,15.390363209007774,3512,,,,,,,,,,2,0
 ablation,llama-3.3-70b,zero_shot,INFEASIBLE,True,0,False,10.429932549013756,3416,,,,,,,,,,0,0
 ablation,llama-3.3-70b,zero_shot,STAY,True,0,True,12.216930248017889,3240,,,,,,,,,,0,0
@@ -12595,7 +12595,7 @@ ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,14.846419414971024,3569,,,,,
 ablation,llama-3.3-70b,one_shot,STAY,True,0,True,5.437137015978806,3195,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,12.891080264991615,3478,,,,,,,,,,2,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,False,0,False,12.871789997967426,4088,,,,,,,,,,1,-1
-ablation,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,8.798301586997695,3615,,,,,,,,,,1,1
+ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,8.798301586997695,3615,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,12.537725778005552,3792,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,STAY,True,0,True,5.532753946026787,3220,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,4.790112532966305,3401,,,,,,,,,,1,0
@@ -12702,7 +12702,7 @@ ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,4.12603293301072,3571,,,,,,,
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,7.587738418951631,3457,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,INFEASIBLE,True,0,False,6.744537591992412,3947,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,4.11565240600612,3393,,,,,,,,,,1,0
-ablation,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,5.840841653989628,3889,,,,,,,,,,1,2
+ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.840841653989628,3889,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,STAY,True,0,True,5.208882477018051,3383,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,11.922423777985387,3559,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,4.600290095026139,3760,,,,,,,,,,3,0
@@ -12863,7 +12863,7 @@ ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,5.61320512596285,3554,,,,,,,
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,6.77331568201771,3456,,,,,,,,,,2,0
 ablation,llama-3.3-70b,one_shot,STAY,True,0,True,12.175707995018456,3178,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,9.242774062033277,3611,,,,,,,,,,1,0
-ablation,llama-3.3-70b,one_shot,OFFLOAD,True,3,True,13.530452472972684,3731,,,,,,,,,,1,2
+ablation,llama-3.3-70b,one_shot,OFFLOAD,True,1,True,13.530452472972684,3731,,,,,,,,,,1,0
 ablation,llama-3.3-70b,one_shot,OFFLOAD,True,2,True,6.814304336963687,3646,,,,,,,,,,2,0
 ablation,llama-3.3-70b,one_shot,INFEASIBLE,True,0,False,7.919524458993692,3622,,,,,,,,,,0,0
 ablation,llama-3.3-70b,one_shot,STAY,True,0,True,9.451950784015935,3387,,,,,,,,,,0,0
@@ -13095,7 +13095,7 @@ ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,6.110633450036403,4213,,,,,,
 ablation,llama-3.3-70b,few_shot,STAY,True,0,True,3.5637575139990076,3799,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,7.172399653005414,4080,,,,,,,,,,2,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,False,0,False,11.877982394013088,4828,,,,,,,,,,1,-1
-ablation,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,7.80444458196871,4247,,,,,,,,,,1,1
+ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,7.80444458196871,4247,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,18.338037264999002,4400,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,STAY,True,0,True,5.404646804963704,3878,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,2.9114866870222613,4062,,,,,,,,,,1,0
@@ -13202,7 +13202,7 @@ ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,4.325032930006273,4204,,,,,,
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,4.458664153993595,4050,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,INFEASIBLE,True,0,False,5.967873931978829,4532,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.247797673975583,4016,,,,,,,,,,1,0
-ablation,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,5.063641705957707,4495,,,,,,,,,,1,2
+ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.063641705957707,4495,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,STAY,True,0,True,5.91174015897559,3992,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,5.028354729991406,4207,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,6.622627363016363,4419,,,,,,,,,,3,0
@@ -13363,7 +13363,7 @@ ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,6.260378464998212,4203,,,,,,
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,11.470047369017266,4124,,,,,,,,,,2,0
 ablation,llama-3.3-70b,few_shot,STAY,True,0,True,7.289375730033498,3809,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,8.294828250014689,4156,,,,,,,,,,1,0
-ablation,llama-3.3-70b,few_shot,OFFLOAD,True,3,True,7.587303602951579,4363,,,,,,,,,,1,2
+ablation,llama-3.3-70b,few_shot,OFFLOAD,True,1,True,7.587303602951579,4363,,,,,,,,,,1,0
 ablation,llama-3.3-70b,few_shot,OFFLOAD,True,2,True,7.365164173010271,4279,,,,,,,,,,2,0
 ablation,llama-3.3-70b,few_shot,INFEASIBLE,True,0,False,10.67628561303718,4213,,,,,,,,,,0,0
 ablation,llama-3.3-70b,few_shot,STAY,True,0,True,7.374897055968177,4019,,,,,,,,,,0,0
@@ -13595,7 +13595,7 @@ ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.7134542540297844,
 ablation,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,1.8932381629711017,3000,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.0472225009580143,3406,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.265549913048744,3646,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.611400698951911,3446,,,,,,,,,,1,1
+ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.611400698951911,3446,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,5.0268308779923245,3549,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,2.238809719972778,3075,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,2.6041464650188573,3199,,,,,,,,,,1,0
@@ -13702,7 +13702,7 @@ ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,7.099251082981937,3
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,6.956879729987122,3261,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,INFEASIBLE,True,0,False,3.2909950020257384,3760,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,8.943236911960412,3297,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,15.756437517004088,3817,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,15.756437517004088,3817,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,5.745968567964155,3184,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,3.4024755370337516,3487,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,2.683483661036007,3553,,,,,,,,,,3,0
@@ -13863,7 +13863,7 @@ ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,10.257283147017006,
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,16.85517252498539,3392,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,6.315959183964878,3041,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,6.980142157000955,3386,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,3,True,8.834142189007252,3535,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,1,True,8.834142189007252,3535,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,zero_shot,OFFLOAD,True,2,True,3.4760223850025795,3643,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,zero_shot,INFEASIBLE,True,0,False,15.863833098032046,3406,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,zero_shot,STAY,True,0,True,2.422325193998404,3228,,,,,,,,,,0,0
@@ -14095,7 +14095,7 @@ ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.1254308709758334,3
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.5267220020177774,3148,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,2.719963565003127,3447,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.75922884902684,3782,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,3.0022710859775543,3581,,,,,,,,,,1,1
+ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.0022710859775543,3581,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,4.313480331969913,3819,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.3234179799910635,3188,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.4152802160242572,3367,,,,,,,,,,1,0
@@ -14202,7 +14202,7 @@ ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,8.203324228001293,35
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,2.9712352610076778,3403,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,INFEASIBLE,True,0,False,3.133802748983726,3897,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,False,0,False,4.993995402008295,3087,,,,,,,,,,1,-1
-ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,5.9256894460413605,3963,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,5.9256894460413605,3963,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,5.04754113801755,3333,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.994293525989633,3535,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,4.095514013955835,3723,,,,,,,,,,3,0
@@ -14363,7 +14363,7 @@ ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.411882056039758,36
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,6.480009077989962,3558,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,5.272506924986374,3178,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,5.872233334986959,3544,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,3.6896318420185708,3733,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,3.6896318420185708,3733,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,2,True,8.684181899006944,3684,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,one_shot,INFEASIBLE,True,0,False,9.554241530015133,3566,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,7.258438760996796,3339,,,,,,,,,,0,0
@@ -14442,7 +14442,7 @@ ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,4.1831006439751945,3338
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,3,True,2.6447116450290196,3667,,,,,,,,,,3,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,4.955677610007115,3486,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,STAY,True,0,True,2.0561152969603427,3351,,,,,,,,,,0,0
-ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,6.556765059998725,3679,,,,,,,,,,1,0
+ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,False,0,False,6.556765059998725,3679,,,,,,,,,,1,-1
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,10.062204996997025,3527,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,8.203759972006083,3500,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,one_shot,OFFLOAD,True,1,True,4.046532927022781,3332,,,,,,,,,,1,0
@@ -14595,7 +14595,7 @@ ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.419585309980903,42
 ablation,mistral-small-3.2-24b,few_shot,STAY,True,0,True,1.970105342043098,3801,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,5.561078025959432,4140,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.7479690759791993,4428,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,3.334171751048416,4221,,,,,,,,,,1,1
+ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.334171751048416,4221,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.1879304670146666,4462,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,STAY,True,0,True,2.0262306329677813,3862,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.120262014970649,4021,,,,,,,,,,1,0
@@ -14702,7 +14702,7 @@ ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,2.8749557050177827,4
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,9.609651826962363,4059,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,INFEASIBLE,True,0,False,3.6145538179553114,4567,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,False,0,False,6.412712713005021,3742,,,,,,,,,,1,-1
-ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,3,True,11.493721217033453,4528,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,11.493721217033453,4528,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,STAY,True,0,True,4.213580372976139,3989,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,4.367867734050378,4239,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,False,2.8350795199512504,4260,,,,,,,,,,3,-2
@@ -14863,7 +14863,7 @@ ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,6.413591163000092,42
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,5.483686217979994,4222,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,few_shot,STAY,True,0,True,1.7887608770397492,3841,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.454015575000085,4190,,,,,,,,,,1,0
-ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,3,True,3.269055328972172,4411,,,,,,,,,,1,2
+ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,1,True,3.269055328972172,4411,,,,,,,,,,1,0
 ablation,mistral-small-3.2-24b,few_shot,OFFLOAD,True,2,True,10.284598258964252,4350,,,,,,,,,,2,0
 ablation,mistral-small-3.2-24b,few_shot,INFEASIBLE,True,0,False,2.883554260013625,4219,,,,,,,,,,0,0
 ablation,mistral-small-3.2-24b,few_shot,STAY,True,0,True,8.281823428987991,3978,,,,,,,,,,0,0
